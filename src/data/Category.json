@@ -1,0 +1,90 @@
+[
+  {
+    "category": "Electronics",
+    "subcategories": [
+      { "subcategory": "Mobile Phones" },
+      { "subcategory": "Laptops" },
+      { "subcategory": "Cameras" },
+      { "subcategory": "Televisions" },
+      { "subcategory": "Headphones" },
+      { "subcategory": "Smart Watches" },
+      { "subcategory": "Tablets" },
+      { "subcategory": "Speakers" },
+      { "subcategory": "Drones" }
+    ]
+  },
+  {
+    "category": "Home Appliances",
+    "subcategories": [
+      { "subcategory": "Refrigerators" },
+      { "subcategory": "Washing Machines" },
+      { "subcategory": "Microwave Ovens" },
+      { "subcategory": "Vacuum Cleaners" },
+      { "subcategory": "Air Conditioners" },
+      { "subcategory": "Water Purifiers" },
+      { "subcategory": "Dishwashers" },
+      { "subcategory": "Induction Cooktops" },
+      { "subcategory": "Heaters" }
+    ]
+  },
+  {
+    "category": "Fashion",
+    "subcategories": [
+      { "subcategory": "Men's Clothing" },
+      { "subcategory": "Women's Clothing" },
+      { "subcategory": "Footwear" },
+      { "subcategory": "Bags" },
+      { "subcategory": "Jewelry" },
+      { "subcategory": "Watches" },
+      { "subcategory": "Eyewear" },
+      { "subcategory": "Hats" },
+      { "subcategory": "Accessories" },
+      { "subcategory": "Belts" }
+    ]
+  },
+  {
+    "category": "Sports & Outdoors",
+    "subcategories": [
+      { "subcategory": "Fitness Equipment" },
+      { "subcategory": "Camping Gear" },
+      { "subcategory": "Cycling" },
+      { "subcategory": "Running" },
+      { "subcategory": "Swimming" },
+      { "subcategory": "Hiking" },
+      { "subcategory": "Fishing" },
+      { "subcategory": "Tennis" },
+      { "subcategory": "Yoga" }
+    ]
+  },
+  {
+    "category": "Beauty & Personal Care",
+    "subcategories": [
+      { "subcategory": "Makeup" },
+      { "subcategory": "Skincare" },
+      { "subcategory": "Hair Care" },
+      { "subcategory": "Perfumes" },
+      { "subcategory": "Nail Care" },
+      { "subcategory": "Bath & Body" },
+      { "subcategory": "Men's Grooming" },
+      { "subcategory": "Oral Care" },
+      { "subcategory": "Sunscreen" },
+      { "subcategory": "Deodorants" }
+    ]
+  },
+  {
+    "category": "Automotive",
+    "subcategories": [
+      { "subcategory": "Car Accessories" },
+      { "subcategory": "Motorcycle Accessories" },
+      { "subcategory": "Tires & Wheels" },
+      { "subcategory": "Car Electronics" },
+      { "subcategory": "Car Care" },
+      { "subcategory": "Motorcycle Helmets" },
+      { "subcategory": "Batteries" },
+      { "subcategory": "Car Lighting" },
+      { "subcategory": "Car Audio" },
+      { "subcategory": "Motorcycle Gear" },
+      { "subcategory": "Oil & Fluids" }
+    ]
+  }
+]

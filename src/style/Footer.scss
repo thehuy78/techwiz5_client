@@ -1,0 +1,129 @@
+.footer {
+    background-color: var(--cl_bg);
+    width: 100%;
+    padding: 4rem 2rem;
+    box-shadow: 0 -0.1rem 0.4rem var(--shadow-black);
+
+    .container_footer {
+        color: white;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1.5fr 1fr 1fr 2fr;
+        .b_1 {
+            width: 100%;
+            //background-color: red;
+            .b_image {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 50%;
+                }
+            }
+            .b_icon {
+                display: flex;
+                padding: 1rem 0;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+                i {
+                    font-size: 1.1rem;
+                    width: 2rem;
+                    height: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: black;
+                    transition: 0.3s all ease-in;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                    color: white;
+                    border: 0.05rem solid white;
+                }
+                i:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+        .b_2 {
+            .title {
+                padding: 0 0 0.5rem;
+                color: var(--shadow-white);
+                font-size: var(--fz_small);
+                font-weight: 600;
+            }
+            .list_child {
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .link_tag {
+                color: white;
+                p {
+                    font-weight: 800;
+                }
+            }
+        }
+        .b_3 {
+            .title {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            form {
+                padding: 1rem 0;
+                .form_group {
+                    padding: 1rem 0;
+                    width: 100%;
+                    //background-color: red;
+                    input {
+                        width: 100%;
+                        max-width: 22rem;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        padding: 0.3rem 0.5rem;
+                        outline: none;
+                        border: none;
+                        color: white;
+                        background-color: black;
+                        border-bottom: 0.1rem solid var(--shadow-white);
+                        transition: 0.5s all ease;
+
+                        &::placeholder {
+                            color: var(--shadow-white);
+                            font-size: var(--fz_small);
+                        }
+                        &:focus {
+                            border: 0.1rem solid var(--shadow-white);
+                        }
+                    }
+                }
+                .form_btn {
+                    width: 100%;
+                    input {
+                        font-size: 1rem;
+                        padding: 0.5rem 3rem;
+                        background-color: var(--cl_bg);
+                        color: white;
+                        font-weight: 700;
+                        cursor: pointer;
+                        border: 0.01rem solid white;
+                        box-shadow: 0 0 0.2rem var(--shadow-white);
+                        outline: none;
+                    }
+                    input {
+                        transition: 0.3s ease-in-out;
+                        cursor: pointer;
+                    }
+                    input:hover {
+                        transform: scale(1.02);
+                    }
+                    input:active {
+                        transform: scale(0.98);
+                    }
+                }
+            }
+        }
+    }
+}

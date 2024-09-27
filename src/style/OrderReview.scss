@@ -1,0 +1,43 @@
+.list_order_review {
+  padding: 1rem 2rem;
+  .title_order_review {
+    font-size: var(--fz_medium);
+    font-weight: 800;
+  }
+  .list_order_item {
+    gap: 0.5rem;
+    display: grid;
+    padding: 1rem;
+    height: 30rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .item {
+      padding: 1rem 1rem;
+      background-color: var(--cl_bg);
+      color: white;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: fit-content;
+
+      .code_id {
+        font-size: var(--fz_smallmax);
+        padding: 0 0 2rem 0;
+      }
+      .date {
+        padding: 1rem;
+      }
+      .status {
+        padding: 0.5rem;
+        color: greenyellow;
+        font-weight: 800;
+      }
+      button {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
