@@ -1,0 +1,32 @@
+[
+    {
+        "id": "account",
+        "name": "Account",
+        "icon": "fa-solid fa-user"
+    },
+    {
+        "id": "booking",
+        "name": "Booking Designer",
+        "icon": "fa-regular fa-calendar-days"
+    },
+    {
+        "id": "order",
+        "name": "Order",
+        "icon": "fa-solid fa-cart-shopping"
+    },
+    {
+        "id": "notification",
+        "name": "Notification",
+        "icon": "fa-solid fa-bell"
+    },
+    {
+        "id": "review",
+        "name": "Review",
+        "icon": "fa-solid fa-clipboard"
+    },
+    {
+        "id": "bookmark",
+        "name": "Bookmark",
+        "icon": "fa-solid fa-bookmark"
+    }
+]

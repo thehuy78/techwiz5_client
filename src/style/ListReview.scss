@@ -1,0 +1,24 @@
+.listReview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--cl_bg);
+  height: 30rem;
+  overflow-y: scroll;
+}
+.item_review {
+  width: 70%;
+  background-color: var(--white);
+  padding: 0.5rem 1rem;
+  .b____1 {
+    display: flex;
+    justify-content: space-between;
+    p:first-child {
+      font-weight: 800;
+    }
+  }
+  .date____ {
+    font-weight: 600;
+    font-size: var(--fz_smallmax);
+  }
+}

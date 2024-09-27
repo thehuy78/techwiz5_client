@@ -1,0 +1,38 @@
+const roomtypejson = [
+    {
+        code: "livingroom",
+        name: "Living Rooms",
+        image: "",
+        background: kitchen1
+    },
+    {
+        code: "bedroom",
+        name: "Bedrooms",
+        image: "",
+        background: bedroom1
+    },
+    {
+        code: "kitchen",
+        name: "Kitchens",
+        image: "",
+        background: kitchen2
+    },
+    {
+        code: "bathroom",
+        name: "Bathrooms",
+        image: "",
+        background: bathroom1
+    },
+    {
+        code: "office",
+        name: "Offices",
+        image: "",
+        background: office1
+    },
+    {
+        code: "ourdoorspace",
+        name: "Outdoor Spaces",
+        image: "",
+        background: outdoor1
+    }
+];

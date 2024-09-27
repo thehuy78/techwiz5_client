@@ -1,0 +1,236 @@
+.designer_page {
+    background-color: var(--cl_bg);
+    width: 100%;
+
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes expandHeight {
+        to {
+            opacity: 1;
+            height: 100%;
+        }
+    }
+
+    @keyframes scale3D {
+        to {
+            transform: scale(1);
+        }
+    }
+    .sec1::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ 50% */
+        z-index: -1; /* Để lớp phủ nằm dưới nội dung nhưng trên hình nền */
+    }
+    .sec1 {
+        position: relative;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 16/6;
+        z-index: 0;
+        height: 40rem;
+        display: flex;
+        align-items: center;
+        .content {
+            color: white;
+            padding: 10%;
+            .t_1 {
+                font-size: var(--fz_large);
+                font-weight: 800;
+                opacity: 0;
+                transform: translateX(-100px);
+                animation: slideIn 2s forwards;
+            }
+            .name_type {
+                font-size: 5rem;
+                font-weight: 1000;
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                animation: expandHeight 3s forwards;
+                transition:
+                    height 3s ease,
+                    opacity 1s ease;
+            }
+            .b_discription {
+                width: 100%;
+                max-width: 550px;
+
+                .discription {
+                    padding: 1rem 0;
+                    transform: scale(0.6);
+                    animation: scale3D 1s forwards;
+                }
+                .btn_scroll {
+                    width: 4rem;
+                    background-color: rgba(255, 255, 255, 0.181);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    aspect-ratio: 1.1/1;
+                    cursor: pointer;
+                    clip-path: polygon(50% 0%, 87.5% 25%, 87.5% 75%, 50% 100%, 12.5% 75%, 12.5% 25%);
+                    i {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .sec3 {
+        width: 100%;
+        max-width: var(--mw);
+        background-color: var(--cl_bg);
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 3rem 0;
+        margin: auto;
+        .item {
+            width: 100%;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            border-bottom: 0.1rem solid var(--shadow-black);
+
+            .left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                .title {
+                    font-size: var(--fz_max);
+                    color: white;
+                    position: relative;
+                }
+                .title::before {
+                    font-size: var(--fz_max);
+                    color: white;
+                    position: absolute;
+                    width: 20%;
+                    height: 0.1rem;
+                    bottom: 0;
+                    left: 0;
+                    content: "";
+                    background-color: orange;
+                    z-index: 1;
+                }
+                .discription {
+                    font-size: var(--fz_smallmax);
+                    color: var(--shadow-white);
+                    width: 80%;
+                }
+            }
+            .right {
+                flex: 1;
+                display: flex;
+                justify-content: left;
+                padding: 0;
+                p {
+                    width: fit-content;
+
+                    font-size: 12rem;
+                    padding: 0;
+                    line-height: 12rem;
+                    font-weight: 800;
+                    background-image: url("../assets/images/kitchen/modern.jpg");
+                    background-size: cover;
+                    background-position: center;
+                    color: transparent;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                }
+            }
+        }
+        .item:nth-child(even) {
+            flex-direction: row-reverse;
+            .right {
+                flex: 1;
+                display: flex;
+
+                justify-content: right;
+                p {
+                    background-image: url("../assets/images/background/badrooom.jpg");
+                }
+            }
+        }
+        .item:first-child {
+            .right {
+                p {
+                    background-image: url("../assets/images/outdoor/z5844677421979_b33f71001b3d3b7598e6f517955bcee6.jpg");
+                }
+            }
+        }
+        .item:last-child {
+            .right {
+                p {
+                    background-image: url("../assets/images/outdoor/z5844677423967_c13cbaf0afdf9785eee04a0296486827.jpg");
+                }
+            }
+        }
+    }
+    .sec2 {
+        width: 100%;
+        margin: auto;
+        max-width: var(--mw);
+        padding: 2rem 0;
+        .b_sec21 {
+            background-color: var(--shadow-white);
+            padding: 2rem;
+            border-radius: 1rem;
+            .list_designer {
+                width: 100%;
+            }
+            .content {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+                position: relative;
+                .right {
+                    background-image: url("../assets/images/background/s1.jpeg");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    aspect-ratio: 3/1;
+                }
+                .title {
+                    background-color: var(--white);
+                    width: fit-content;
+                    position: absolute;
+                    width: 30%;
+                    font-size: var(--fz_large);
+                    font-weight: 800;
+                    color: var(--cl_bg);
+                    padding: 0.5rem 2rem;
+                    text-align: center;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-80%) translateY(-50%);
+                }
+                .left {
+                    p:first-child {
+                        color: orange;
+                        font-weight: 800;
+                        padding: 1rem 0;
+                    }
+                    p:last-child {
+                        color: var(--shadow-white);
+                        font-size: var(--fz_small);
+                        width: 60%;
+                    }
+                }
+            }
+        }
+    }
+}
