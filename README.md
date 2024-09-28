@@ -1,4 +1,4 @@
 
 
 
-Publish: https://thehuy78.github.io/tw5/ 
+Publish: https://thehuy78.github.io/techwiz5_client/
