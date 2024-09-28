@@ -251,6 +251,11 @@ export default function Product() {
     setProduct(filteredProducts);
   }, [valueFilter, productSave, priceRange, totalPages, currentPage]);
 
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [valueFilter, priceRange])
+
   return (
     <div className="product_page">
       <LoadingPage isloading={isloading} />
