@@ -8,7 +8,7 @@ import 'react-notifications/lib/notifications.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <BrowserRouter basename="/tw5">
+  <BrowserRouter basename="/techwiz5_client">
     <App />
   </BrowserRouter>
 
