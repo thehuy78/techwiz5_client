@@ -54,7 +54,7 @@ export default function BlogDetail() {
                     <p className='name_type'>{blog.interior_designer && blog.interior_designer.first_name} {blog.interior_designer && blog.interior_designer.last_name}</p>
                     <div className='b_discription'>
                         <p className='discription'>Explore modern interior design trends that optimize living spaces, bringing elegance and comfort to your home with stylish and functional solutions</p>
-                        <p className='btn_scroll' ><i class="fa-solid fa-angle-down"></i></p>
+                        <p className='btn_scroll' ><i className="fa-solid fa-angle-down"></i></p>
                     </div>
                 </div>
             </section>

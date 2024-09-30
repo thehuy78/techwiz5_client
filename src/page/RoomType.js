@@ -84,7 +84,7 @@ export default function RoomType() {
     fade: true,
     easing: "ease-in-out",
   };
-  // Function to handle the scroll
+
   const handleScroll = () => {
     if (sec2Ref.current) {
       sec2Ref.current.scrollIntoView({ behavior: "smooth" });
@@ -92,9 +92,9 @@ export default function RoomType() {
   };
 
   useEffect(() => {
-    // Start fade-out animation
+
     setAnimateClass("fade-out");
-    // setFadeBg(true); // Start fading the background
+
 
     const timeoutId = setTimeout(() => {
       switch (typeRoom) {
@@ -120,12 +120,11 @@ export default function RoomType() {
           setBgimg(living);
           break;
       }
-      // Remove fade-out class and start fade-in
-      setAnimateClass("fade-in");
-      // setFadeBg(false); // End fading the background
-    }, 1000); // Wait for fade-out to complete (0.3s)
 
-    return () => clearTimeout(timeoutId); // Clear timeout if component unmounts
+      setAnimateClass("fade-in");
+
+    }, 1000);
+    return () => clearTimeout(timeoutId);
   }, [typeRoom]);
 
   const fetchGallery = useCallback(async (url) => {
@@ -139,7 +138,7 @@ export default function RoomType() {
           setIsloading(false);
         }, 500);
       }
-      // setLoadingcomponent(false)
+
     } catch (error) {
       setTimeout(() => {
         setIsloading(false);
@@ -155,7 +154,7 @@ export default function RoomType() {
         const gallerynew = res.data.data;
         setGalleryNew(gallerynew);
       }
-      // setLoadingcomponent(false)
+
     } catch (error) {
       console.log(error);
     }
@@ -402,11 +401,11 @@ export default function RoomType() {
           <p className="title_sec4">VIEW GALLERY</p>
           <div style={{ textAlign: "center" }} className="box_btn">
             <p className="btn_scroll" onClick={previous}>
-              <i class="fa-solid fa-angle-down"></i>
+              <i className="fa-solid fa-angle-down"></i>
             </p>
 
             <p className="btn_scroll" onClick={next}>
-              <i class="fa-solid fa-angle-down"></i>
+              <i className="fa-solid fa-angle-down"></i>
             </p>
           </div>
         </div>
@@ -460,7 +459,7 @@ export default function RoomType() {
             >
               <div className="b_btn">
                 <p>See more</p>
-                <i class="fa-solid fa-arrow-right"></i>
+                <i className="fa-solid fa-arrow-right"></i>
               </div>
             </Link>
           </div>

@@ -38,7 +38,7 @@ export default function OrderReview() {
     } catch (error) {
       console.log(error)
     }
-  }, [])
+  }, [userdata.id])
   useEffect(() => {
     setTimeout(async () => {
       fetchOrder()

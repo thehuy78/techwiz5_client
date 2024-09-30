@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import "../style/OrderDetails.scss";
 import { useLayout } from "../hooks/Layout/LayoutContext";
 import LoadingPage from "../component/LoadingPage";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { apiRequest } from "../hooks/Api/Api";
 import { formatDate } from "../function/FormatDate";
 
@@ -60,7 +60,7 @@ export default function OrderDetails() {
         <LoadingPage isloading={isloading} />
         <section className="sec1">
           <div className="brums_orderdetail">
-            <i class="fa-solid fa-arrow-left"></i>
+            <Link className="link_tag" to={"/customer"} style={{ color: "white" }}> <i className="fa-solid fa-arrow-left"></i></Link>
             <div className="li_brums">
               <p className="id_order">Order #{detailOrder[0].idorder}</p>
               <p className="date_created_order">
@@ -76,7 +76,7 @@ export default function OrderDetails() {
                 Expected {formatDate(detailOrder[0].create_at)}
               </p>
               <div className="box_status">
-                <i class="fa-solid fa-truck-fast"></i>
+                <i className="fa-solid fa-truck-fast"></i>
                 <div>
                   <p>Out for delivery</p>
                   <p>Update {formatDate(detailOrder[0].create_at)}</p>
@@ -109,7 +109,7 @@ export default function OrderDetails() {
               </div>
             </div>
             <div className="b_sup">
-              <i class="fa-solid fa-headset"></i>
+              <i className="fa-solid fa-headset"></i>
               <p>
                 If you have any questions, please contact hotline 09989887 or
                 email techwiz@gmail.com for support.

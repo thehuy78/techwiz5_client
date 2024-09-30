@@ -90,7 +90,7 @@ export default function UpdatePassword() {
             id="oldPass"
           ></input>
           <i
-            class={`fa-regular ${showpassold ? "fa-eye-slash" : "fa-eye"
+            className={`fa-regular ${showpassold ? "fa-eye-slash" : "fa-eye"
               } show_password`}
             onClick={() => {
               setShowpassold((prev) => !prev);
@@ -106,7 +106,7 @@ export default function UpdatePassword() {
             id="newPass"
           ></input>
           <i
-            class={`fa-regular ${showpassnew ? "fa-eye-slash" : "fa-eye"
+            className={`fa-regular ${showpassnew ? "fa-eye-slash" : "fa-eye"
               } show_password`}
             onClick={() => {
               setShowpassnew((prev) => !prev);
@@ -122,7 +122,7 @@ export default function UpdatePassword() {
             id="confirmPass"
           ></input>
           <i
-            class={`fa-regular ${showpassconfirm ? "fa-eye-slash" : "fa-eye"
+            className={`fa-regular ${showpassconfirm ? "fa-eye-slash" : "fa-eye"
               } show_password`}
             onClick={() => {
               setShowpassconfirm((prev) => !prev);

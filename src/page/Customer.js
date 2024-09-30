@@ -92,7 +92,7 @@ export default function Customer() {
                   {userData && userData.last_name}
                 </p>
                 <p>
-                  <i class="fa-regular fa-gem"></i> Silver
+                  <i className="fa-regular fa-gem"></i> Silver
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function Customer() {
                       }`}
                     onClick={() => handleClick(items.id)}
                   >
-                    <i class={items.icon}></i>
+                    <i className={items.icon}></i>
                     {items.name}
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export default function Customer() {
                   className={`item ${activeIndex === "logout" ? "active" : ""}`}
                   onClick={LogOut}
                 >
-                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <i className="fa-solid fa-right-to-bracket"></i>
                   Log Out
                 </div>
               </div>

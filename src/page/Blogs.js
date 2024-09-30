@@ -189,7 +189,7 @@ export default function Blogs() {
                     <p className='name_type'>Furniture Article</p>
                     <div className='b_discription'>
                         <p className='discription'>Explore modern interior design trends that optimize living spaces, bringing elegance and comfort to your home with stylish and functional solutions</p>
-                        <p className='btn_scroll' ><i class="fa-solid fa-angle-down"></i></p>
+                        <p className='btn_scroll' ><i className="fa-solid fa-angle-down"></i></p>
                     </div>
                 </div>
             </section>
@@ -213,7 +213,7 @@ export default function Blogs() {
                     <div className='filter'>
                         <div className='b_search'>
                             <input type='search' onChange={onChangeSearch} id='search_blogs' />
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
                         {/* <div className='btn_latest'>Latest</div>
                         <div className='btn_oldest'>Oldest</div> */}

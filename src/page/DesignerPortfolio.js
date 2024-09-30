@@ -204,7 +204,7 @@ export default function DesignerPortfolio() {
         <div className='sec7_container'>
           <Slider {...settings}>
             {Array(6).fill().map((index) => (
-              <div className='b_review_item' key={index}>
+              <div key={index} className='b_review_item' >
                 <div className='container_item'>
                   <img src="https://tinyurl.com/2774tvkx" alt='' />
                   <div className='box_content'>
@@ -212,7 +212,7 @@ export default function DesignerPortfolio() {
                     <p className='date_create'>19/09/2024 13:23</p>
                     <p className='cmt'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                     <div className='box_rare'>
-                      <Star />
+                      <Star number={5} key={1} />
 
                     </div>
                   </div>
@@ -272,16 +272,16 @@ export default function DesignerPortfolio() {
               {...settings1}
             >
               {Array(5).fill().map((index) => (
-                <BlogsItem />
+                <BlogsItem key={index} />
               ))}
             </Slider>
 
           </div>
           <div style={{ textAlign: "center" }} className='box_btn'>
 
-            <p className='btn_scroll' onClick={previous}><i class="fa-solid fa-angle-down"></i></p>
+            <p className='btn_scroll' onClick={previous}><i className="fa-solid fa-angle-down"></i></p>
 
-            <p className='btn_scroll' onClick={next}><i class="fa-solid fa-angle-down"></i></p>
+            <p className='btn_scroll' onClick={next}><i className="fa-solid fa-angle-down"></i></p>
           </div>
         </div>
       </section>

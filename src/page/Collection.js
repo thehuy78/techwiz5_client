@@ -157,7 +157,7 @@ export default function Collection() {
                     <p className='name_type'>GALLERY</p>
                     <div className='b_discription'>
                         <p className='discription'>Gallery is where Decor Vista proudly refers to as a virtual museum showcasing a collection of artistic works in interior design and living spaces. The Inspiration Gallery will provide our customers with a wealth of artistic inspiration, helping them to shape their style and desires.</p>
-                        <p className='btn_scroll' onClick={handleScroll}><i class="fa-solid fa-angle-down"></i></p>
+                        <p className='btn_scroll' onClick={handleScroll}><i className="fa-solid fa-angle-down"></i></p>
                     </div>
                 </div>
             </section>
@@ -165,7 +165,7 @@ export default function Collection() {
                 <div className='left'>
                     <p className='title'>STYLISH & FUNCTIONAL SPACE DESIGN</p>
                     <p className='discription'>Creating a stylish and functional space design is essential for enhancing both aesthetics and practicality in any home. A well-designed space harmonizes beauty with usability, ensuring that every element serves a purpose while reflecting personal style. From choosing the right furniture that complements the overall decor to optimizing layouts for maximum efficiency, each decision contributes to a cohesive environment. Whether it's an inviting living room, a productive home office, or a serene bedroom, the goal is to create spaces that not only look good but also foster comfort and functionality, ultimately improving the quality of life for those who inhabit them.</p>
-                    <p className='btn_scroll'><i class="fa-solid fa-angle-down"></i></p>
+                    <p className='btn_scroll'><i className="fa-solid fa-angle-down"></i></p>
 
                 </div>
                 <div className='right'>
@@ -231,9 +231,9 @@ export default function Collection() {
                         <p className='title_sec4'>VIEW GALLERY</p>
                         <div style={{ textAlign: "center" }} className='box_btn'>
 
-                            <p className='btn_scroll' onClick={previous}><i class="fa-solid fa-angle-down"></i></p>
+                            <p className='btn_scroll' onClick={previous}><i className="fa-solid fa-angle-down"></i></p>
 
-                            <p className='btn_scroll' onClick={next}><i class="fa-solid fa-angle-down"></i></p>
+                            <p className='btn_scroll' onClick={next}><i className="fa-solid fa-angle-down"></i></p>
                         </div>
                     </div>
 
@@ -262,9 +262,9 @@ export default function Collection() {
 
                         <div className='box_btn'>
 
-                            <p className='btn_scroll' onClick={previous1}><i class="fa-solid fa-angle-down"></i></p>
+                            <p className='btn_scroll' onClick={previous1}><i className="fa-solid fa-angle-down"></i></p>
 
-                            <p className='btn_scroll' onClick={next1}><i class="fa-solid fa-angle-down"></i></p>
+                            <p className='btn_scroll' onClick={next1}><i className="fa-solid fa-angle-down"></i></p>
                         </div>
                     </div>
 

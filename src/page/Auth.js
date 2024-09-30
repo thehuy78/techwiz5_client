@@ -4,8 +4,7 @@ import "../style/Auth.scss"
 import { Link, useNavigate } from 'react-router-dom';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import Company from "../data/Company.json"
-import { apiRequest } from '../hooks/Api/Api';
-import { jwtDecode } from "jwt-decode"; // Correct import
+
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 export default function Auth() {
@@ -153,7 +152,7 @@ export default function Auth() {
       const res = await axios.post('https://localhost:7229/api/AuthUser/Login', account);
       console.log(res);
       if (res && res.data && res.data.data && res.data.status === 200) {
-        const jwttoken = jwtDecode(res.data.data)
+
         var exp = new Date()
         exp.setHours(exp.getHours() + 1);
         setCookie("autherize", res.data.data, { expires: exp })
@@ -193,7 +192,7 @@ export default function Auth() {
     <section className='auth_container'>
       <NotificationContainer />
       <Link to={"/"} className='back_to_home'>
-        <i class="fa-solid fa-right-to-bracket"></i>
+        <i className="fa-solid fa-right-to-bracket"></i>
       </Link>
       <div className='b_auth'>
         <div className={`b_form_auth ${hasClicked ? (form ? 'show-login' : 'show-register') : ''}`}>
@@ -221,7 +220,7 @@ export default function Auth() {
                   <label>Password</label>
                   <i className="fa-solid fa-key icon_lg_input"></i>
                   <input placeholder='Enter your password' type={showpass ? "text" : "password"} id='pw_lg'></input>
-                  <i class={`fa-regular ${showpass ? 'fa-eye-slash' : 'fa-eye'} show_password`} onClick={() => {
+                  <i className={`fa-regular ${showpass ? 'fa-eye-slash' : 'fa-eye'} show_password`} onClick={() => {
                     setShowpass(prev => !prev)
                   }}></i>
                 </div>
@@ -237,10 +236,10 @@ export default function Auth() {
                 <input type='submit' value={"Login with Email"} className='btn_email' />
               </div>
               <div className='b_icon'>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-github"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </div>
 
             </div>
@@ -286,7 +285,7 @@ export default function Auth() {
                   <i className="fa-solid fa-key icon_lg_input"></i>
                   <input placeholder='Enter your password' type={showpass ? "text" : "password"} id='pw_re'></input>
                   <span className='error_password error'></span>
-                  <i class={`fa-regular ${showpass ? 'fa-eye-slash' : 'fa-eye'} show_password`} onClick={() => {
+                  <i className={`fa-regular ${showpass ? 'fa-eye-slash' : 'fa-eye'} show_password`} onClick={() => {
                     setShowpass(prev => !prev)
                   }}></i>
                 </div>
@@ -295,7 +294,7 @@ export default function Auth() {
                   <i className="fa-solid fa-key icon_lg_input"></i>
                   <input placeholder='Enter your password Confirm' type={showpassconfirm ? "text" : "password"} id='pw_cf_re'></input>
                   <span className='error_password_confirm error'></span>
-                  <i class={`fa-regular ${showpassconfirm ? 'fa-eye-slash' : 'fa-eye'} show_password`} onClick={() => {
+                  <i className={`fa-regular ${showpassconfirm ? 'fa-eye-slash' : 'fa-eye'} show_password`} onClick={() => {
                     setShowpassConfirm(prev => !prev)
                   }}></i>
                 </div>
@@ -306,10 +305,10 @@ export default function Auth() {
               </form>
 
               <div className='b_icon'>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-github"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </div>
 
             </div>

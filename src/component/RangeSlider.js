@@ -24,6 +24,7 @@ const RangeSlider = ({ min, max, step, onChange }) => {
                 }}
                 renderTrack={({ props, children }) => (
                     <div
+                        key={2}
                         {...props}
                         style={{
                             ...props.style,
@@ -42,6 +43,7 @@ const RangeSlider = ({ min, max, step, onChange }) => {
                 )}
                 renderThumb={({ props }) => (
                     <div
+                        key={1}
                         {...props}
                         style={{
                             ...props.style,

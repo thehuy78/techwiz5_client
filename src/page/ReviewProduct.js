@@ -82,7 +82,7 @@ export default function ReviewBooking() {
       formData.append("score", star);
       formData.append("orderId", id);
       const response = await axios.post(
-        "https://localhost:7229/api/Review/SendFeedBackProduct",
+        "https://localhost:7229/api/ReviewFE/SendFeedBackProduct",
         formData
       );
       navigate("/customer")

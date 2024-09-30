@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
 import LoadingPage from '../component/LoadingPage'
 import { useLayout } from "../hooks/Layout/LayoutContext";
 import "../style/Aboutus.scss"
@@ -29,7 +29,7 @@ export default function Aboutus() {
           <p className='title_1'>ABOUT US</p>
           <p className='title_2'>Style Your House</p>
           <p className='title_3'>Style Your Life</p>
-          {/* <Link className='link_tag'><div className='b_btn'><p>Book Appointment Now</p><i class="fa-solid fa-arrow-right"></i></div></Link> */}
+
         </div>
       </section>
       <section className='sec2__'>
@@ -86,13 +86,13 @@ export default function Aboutus() {
             <p className='title'>Professional Consultations</p>
             <p className='description'>Connect with experienced interior designers through our seamless booking system. View designer profiles, schedule consultations, and receive personalized advice to bring your design ideas to life.</p>
           </div>
-          <i class="fa-solid fa-arrow-right"></i>
+          <i className="fa-solid fa-arrow-right"></i>
           <div className='item'>
             <img alt='' src={require("../assets/images/icon/thanthien.png")} />
             <p className='title'>User-Friendly Dashboard</p>
             <p className='description'>Manage your saved designs, track your activities, and stay updated with the latest trends and product updates—all from your personalized dashboard</p>
           </div>
-          <i class="fa-solid fa-arrow-right"></i>
+          <i className="fa-solid fa-arrow-right"></i>
           <div className='item'>
             <img alt='' src={require("../assets/images/icon/tuvan.png")} />
             <p className='title'>Community and Reviews</p>

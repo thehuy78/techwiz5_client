@@ -82,8 +82,7 @@ export default function ProductDetail() {
   const fetchProductDetail = useCallback(async () => {
     try {
       var res = await apiRequest("Get", `ProductFE/GetById/${id}`);
-      console.log("details");
-      console.log(res.data.data);
+
       if (res && res.data && res.data.status === 200) {
         setDetail(res.data.data);
         setTimeout(() => {
@@ -95,6 +94,29 @@ export default function ProductDetail() {
       console.log("get product detail fails");
     }
   }, [id]);
+
+
+  const [reviews, setReviews] = useState()
+  const fetchReview = useCallback(async (idpro) => {
+    try {
+      var res = await apiRequest("Get", `ReviewFE/GetFeedBackProduct/${idpro}`)
+      if (res && res.data && res.data.status === 200) {
+        setReviews(res.data.data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+  useEffect(() => {
+    if (detail) {
+      setTimeout(async () => {
+        fetchReview(detail.id);
+      }, 100);
+    }
+
+  }, [fetchReview, detail]);
+
+
 
   useEffect(() => {
     setTimeout(async () => {
@@ -328,7 +350,7 @@ export default function ProductDetail() {
                   <p>{detail.brand}</p>
                 </div>
                 <div className="b_bookmark">
-                  <i class="fa-regular fa-bookmark"></i>
+                  <i className="fa-regular fa-bookmark"></i>
                 </div>
               </div>
               <div className="name_details">
@@ -472,7 +494,7 @@ export default function ProductDetail() {
                       case 1:
                         return <Infomation item={detail.description} />;
                       case 2:
-                        return <ListReview review={detail.listreview} />;
+                        return reviews && <ListReview review={reviews} />;
                       case 3:
                         return <Policy />;
                       case 4:

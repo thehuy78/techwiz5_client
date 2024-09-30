@@ -1,20 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-import makeAnimated from 'react-select/animated';
+
 import { Link } from 'react-router-dom';
 import { apiRequest } from '../hooks/Api/Api';
 import LoadingPage from './LoadingPage';
 import { useCookies } from "react-cookie";
 import { jwtDecode } from "jwt-decode";
 import { formatDate } from "../function/FormatDate"
-const animatedComponents = makeAnimated();
+
 
 
 
 export default function ListOrder() {
     const [cookies] = useCookies();
     const userdata = jwtDecode(cookies.autherize);
-    console.log(userdata);
+
     const [orders, setOrders] = useState()
     const [currentPage, setCurrentPage] = useState(1);
     const ordersPerPage = 7;
@@ -106,13 +106,6 @@ export default function ListOrder() {
         );
     };
 
-    const optionStatus = [
-        { value: 'All', label: 'All' },
-        { value: 'Pending', label: 'Pending' },
-        { value: 'Delivery', label: 'Delivery' },
-        { value: 'Complete', label: 'Complete' },
-        { value: 'Cancel', label: 'Cancel' }
-    ];
 
 
     const fetchOrder = useCallback(async () => {
@@ -133,7 +126,8 @@ export default function ListOrder() {
         } catch (error) {
             console.log(error)
         }
-    }, [])
+    }, [userdata.id])
+
     useEffect(() => {
         setTimeout(async () => {
             fetchOrder()
@@ -157,7 +151,7 @@ export default function ListOrder() {
                 <div className='b_search_id'>
 
                     <input type='search' placeholder='Search id order' />
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div className='b_search_date'>
                     <span> From </span>
@@ -208,28 +202,3 @@ export default function ListOrder() {
         </div>
     )
 }
-const customStyles = {
-    container: (provided) => ({
-        ...provided,
-        fontSize: "0.7rem",
-        outline: 'none'
-    }),
-    control: (provided) => ({
-        ...provided,
-        fontSize: "0.7rem",
-    }),
-    singleValue: (provided) => ({
-        ...provided,
-        fontSize: "0.7rem",
-        color: '#333',
-    }),
-    menu: (provided) => ({
-        ...provided,
-        fontSize: '0.7rem',
-    }),
-    option: (provided) => ({
-        ...provided,
-        fontSize: '0.7rem',
-        padding: '1rem',
-    }),
-};

@@ -275,7 +275,7 @@ export default function Product() {
               perfectly suited to meet any of your desires.
             </p>
             <p className="btn_scroll" onClick={handleScroll}>
-              <i ref={sec3Ref} class="fa-solid fa-angle-down"></i>
+              <i ref={sec3Ref} className="fa-solid fa-angle-down"></i>
             </p>
           </div>
         </div>
@@ -312,6 +312,7 @@ export default function Product() {
                     funtionality.length > 0 &&
                     funtionality.map((item, index) => (
                       <div
+                        key={index}
                         className={
                           valueFilter.Functionality === item.name
                             ? "item item_choice"
@@ -367,7 +368,7 @@ export default function Product() {
               <div className="b_1">
                 <p className="title">Sort by:</p>
                 <div className="b_search">
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
 
                   <input
                     type="search"
@@ -419,7 +420,7 @@ export default function Product() {
               </div>
             </div>
             <div className="current_filter">
-              <p className="left_current_filter">
+              <div className="left_current_filter">
                 <p className="title">Current filter:</p>
                 <div className="list_filter">
                   {valueFilter.button !== "" && (
@@ -432,10 +433,10 @@ export default function Product() {
                     <button>{valueFilter.rate} Star</button>
                   )}
                 </div>
-              </p>
-              <p className="right_current_filter">
+              </div>
+              <div className="right_current_filter">
                 <button onClick={handelClearFilterValue}>Clear</button>
-              </p>
+              </div>
             </div>
             <div
               className={

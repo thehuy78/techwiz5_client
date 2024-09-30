@@ -93,3 +93,48 @@ button:active {
     background-position: 0% 0%;
   }
 }
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  padding-top: 1rem;
+  gap: 0.3rem;
+  button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    outline: none;
+    font-size: var(--fz_small);
+    outline: none;
+    border: none;
+    font-weight: 700;
+    background-color: var(--cl_bg);
+    color: white;
+    box-shadow: 0.1rem 0.1rem 0.2rem var(--shadow-black);
+    cursor: pointer;
+    transition: 0.3s ease all;
+  }
+  button:first-child {
+    width: 3rem;
+    height: 2rem;
+    background-color: var(--cl_second);
+  }
+  button:last-child {
+    width: 3rem;
+    height: 2rem;
+    background-color: var(--cl_second);
+  }
+  button:active {
+    background-color: var(--cl_bg);
+    color: var(--white);
+  }
+  .button_pagination_active {
+    background-color: var(--white);
+    color: var(--cl_bg);
+  }
+  button:disabled {
+    background-color: var(--gray);
+  }
+}

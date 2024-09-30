@@ -99,7 +99,7 @@ export default function Designer() {
                     <p className='name_type'>DESIGNER</p>
                     <div className='b_discription'>
                         <p className='discription'>Meet with a designer who perfectly aligns with your style, and together, create an artistic living space that embodies contemporary elegance. Collaborate to bring your vision to life, ensuring your home reflects both your personality and the latest design trends.</p>
-                        <p className='btn_scroll' onClick={handleScroll}><i class="fa-solid fa-angle-down"></i></p>
+                        <p className='btn_scroll' onClick={handleScroll}><i className="fa-solid fa-angle-down"></i></p>
                     </div>
                 </div>
             </section>

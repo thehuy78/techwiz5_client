@@ -111,7 +111,7 @@ export default function Home() {
           <Link className="link_tag" to={"/designer"}>
             <div className="b_btn">
               <p>Book Appointment Now</p>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </Link>
         </div>
@@ -137,7 +137,7 @@ export default function Home() {
             <Link className="link_tag" to={"/product"}>
               <div className="b_btn">
                 <p>Go to Product</p>
-                <i class="fa-solid fa-arrow-right"></i>
+                <i className="fa-solid fa-arrow-right"></i>
               </div>
             </Link>
           </div>
@@ -423,7 +423,7 @@ export default function Home() {
           <Link className="link_tag" to={"/designer"}>
             <div className="b_btn">
               <p>Meet Them Now</p>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </div>
           </Link>
         </div>

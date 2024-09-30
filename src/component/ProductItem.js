@@ -14,7 +14,7 @@ export default function ProductItem({ pro }) {
                 <div className='b_1_content'>
                     <div className='b_typeroom_content'>
                         <p className='type_room'>{pro.functionality_name} </p>
-                        <i class="fa-regular fa-bookmark"></i>
+                        <i className="fa-regular fa-bookmark"></i>
                     </div>
 
                     <Link className="link_tag" to={`/detail/${pro.id}`}><p className='name_pro'>{pro.productName}</p></Link>
@@ -25,7 +25,7 @@ export default function ProductItem({ pro }) {
                 </div>
                 <div className='b_2_content'>
 
-                    <Link className='link_tag' to={`/detail/${pro.id}`}> <p className='add_to_cart_box'>  <i class="fa-solid fa-cart-shopping"></i></p></Link>
+                    <Link className='link_tag' to={`/detail/${pro.id}`}> <p className='add_to_cart_box'>  <i className="fa-solid fa-cart-shopping"></i></p></Link>
                     <div>
                         <Star number={pro.score} />
                     </div>

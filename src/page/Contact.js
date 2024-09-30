@@ -73,7 +73,7 @@ export default function Contact() {
                     <p className='name_type'>CONTACT US</p>
                     <div className='b_discription'>
                         <p className='discription'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
-                        <p className='btn_scroll'><i class="fa-solid fa-angle-down"></i></p>
+                        <p className='btn_scroll'><i className="fa-solid fa-angle-down"></i></p>
                     </div>
                 </div>
             </section>
@@ -115,28 +115,28 @@ export default function Contact() {
                     <div className='box_img'></div>
                     <div className='list_contact'>
                         <div className='item'>
-                            <i class="fa-solid fa-phone"></i>
+                            <i className="fa-solid fa-phone"></i>
                             <div className='b_ac'>
                                 <p className='title'>Phone</p>
                                 <p>(+84)098 098 788</p>
                             </div>
                         </div>
                         <div className='item'>
-                            <i class="fa-solid fa-envelope"></i>
+                            <i className="fa-solid fa-envelope"></i>
                             <div className='b_ac'>
                                 <p className='title'>Email</p>
                                 <p>techwiz@gmail.com</p>
                             </div>
                         </div>
                         <div className='item'>
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i className="fa-solid fa-location-dot"></i>
                             <div className='b_ac'>
                                 <p className='title'>Address</p>
                                 <p>590 CMT8,Q3,HCM</p>
                             </div>
                         </div>
                         <div className='item'>
-                            <i class="fa-solid fa-earth-asia"></i>
+                            <i className="fa-solid fa-earth-asia"></i>
                             <div className='b_ac'>
                                 <p className='title'>Nation</p>
                                 <p>Việt Nam</p>
@@ -147,9 +147,9 @@ export default function Contact() {
                     <div className='social_media'>
                         <p className='title'>Social Media:</p>
                         <div className='list_social_contact'>
-                            <Link className='link_tag'><i class="fa-brands fa-facebook"></i></Link>
-                            <Link className='link_tag'><i class="fa-brands fa-youtube"></i></Link>
-                            <Link className='link_tag'><i class="fa-brands fa-github"></i></Link>
+                            <Link className='link_tag'><i className="fa-brands fa-facebook"></i></Link>
+                            <Link className='link_tag'><i className="fa-brands fa-youtube"></i></Link>
+                            <Link className='link_tag'><i className="fa-brands fa-github"></i></Link>
                         </div>
                     </div>
                 </div>

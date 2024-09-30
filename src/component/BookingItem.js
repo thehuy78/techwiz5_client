@@ -3,7 +3,7 @@ import "../style/BookingItem.scss"
 import { apiRequest } from '../hooks/Api/Api';
 import { useCookies } from 'react-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { formatDate, formatDateNotTime } from '../function/FormatDate';
+import { formatDateNotTime } from '../function/FormatDate';
 import LoadingPage from './LoadingPage';
 export default function BookingItem() {
   const [listBooking, setListBooking] = useState()
@@ -46,7 +46,7 @@ export default function BookingItem() {
         <div className='b_filter'>
           <div className='b_search'>
             <input />
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </div>
           <div className='select_status'>
             <select>
@@ -58,8 +58,8 @@ export default function BookingItem() {
           </div>
           <div className='filter_date'>
             <p>Filter Date: </p>
-            <i class="fa-solid fa-arrow-up-wide-short"></i>
-            <i class="fa-solid fa-arrow-down-wide-short"></i>
+            <i className="fa-solid fa-arrow-up-wide-short"></i>
+            <i className="fa-solid fa-arrow-down-wide-short"></i>
           </div>
 
         </div>

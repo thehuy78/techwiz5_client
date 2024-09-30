@@ -248,7 +248,7 @@ export default function Cart() {
                                             <p>${(item.quantity * item.price)?.toFixed(2)}</p>
                                         </div>
                                         <div className='action'>
-                                            <i class="fa-solid fa-trash-can" onClick={() => onDeleteCart(item.id)}></i>
+                                            <i className="fa-solid fa-trash-can" onClick={() => onDeleteCart(item.id)}></i>
                                         </div>
                                     </div>
                                 ))}

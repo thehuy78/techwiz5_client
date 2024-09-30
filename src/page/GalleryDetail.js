@@ -201,7 +201,7 @@ export default function GalleryDetail() {
           <p className='name_type'>VIRTUAL MUSEUM</p>
           <div className='b_discription'>
             <p className='discription'>Each painting is a work of art, harmoniously blending various design trends across different concepts.</p>
-            <p className='btn_scroll' onClick={handleScroll}><i class="fa-solid fa-angle-down"></i></p>
+            <p className='btn_scroll' onClick={handleScroll}><i className="fa-solid fa-angle-down"></i></p>
           </div>
         </div>
       </section>
@@ -249,15 +249,15 @@ export default function GalleryDetail() {
             <p className='descrip'>  {parse(detail.description)}</p>
             <div className='list_ts'>
               <div className='item'>
-                <i class="fa-solid fa-bookmark"></i>
+                <i className="fa-solid fa-bookmark"></i>
                 <p>{detail.subcribes} Bookmark</p>
               </div>
               <div className='item'>
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <i className="fa-solid fa-wand-magic-sparkles"></i>
                 <p>{detail.color_tone} Tone</p>
               </div>
               <div className='item'>
-                <i class="fa-solid fa-clipboard"></i>
+                <i className="fa-solid fa-clipboard"></i>
                 <p>14 Items</p>
               </div>
             </div>

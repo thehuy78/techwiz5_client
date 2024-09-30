@@ -25,7 +25,7 @@ export default function GalleryItem({ item }) {
     }, [parserImage]);
 
 
-    console.log(item);
+
 
     return (
         <div className='galleryItem_CO'>
@@ -52,7 +52,7 @@ export default function GalleryItem({ item }) {
                     </div>
                 </div>
                 <div className='b_btn'>
-                    <Link className='link_tag' to={`/gallerydetail/${item.id}`}><div className='b_btn'><p>Go to gallery</p><i class="fa-solid fa-arrow-right"></i></div></Link>
+                    <Link className='link_tag' to={`/gallerydetail/${item.id}`}><div className='b_btn'><p>Go to gallery</p><i className="fa-solid fa-arrow-right"></i></div></Link>
 
                 </div>
             </div>
@@ -111,7 +111,7 @@ export const GalleryItemComlumn = ({ item }) => {
                         <p className='title'>Items</p>
                     </div>
                     <div className='b_btn'>
-                        <Link className='link_tag' to={`/gallerydetail/${item.id}`}><div className='b_btn'><p>Go to gallery</p><i class="fa-solid fa-arrow-right"></i></div></Link>
+                        <Link className='link_tag' to={`/gallerydetail/${item.id}`}><div className='b_btn'><p>Go to gallery</p><i className="fa-solid fa-arrow-right"></i></div></Link>
 
                     </div>
 

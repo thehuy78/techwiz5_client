@@ -59,7 +59,7 @@ export default function UserInfoCO() {
       }
     };
     fetchData();
-  }, []);
+  }, [userdata]);
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     const fileUrl = URL.createObjectURL(file);
@@ -84,27 +84,14 @@ export default function UserInfoCO() {
       );
       fData.append("phone", document.getElementById("phone").value.trim());
       //   fData.append("email", document.getElementById("phone").value.trim());
-      const response11 = await axios.put(
+      const response = await axios.put(
         "https://localhost:7229/api/UserFE/UpdateProfile",
         fData
       );
+      console.log(response)
       setNoti("Success");
 
-      //   const formData = new FormData();
-      //   console.log(userData.id);
-      //   formData.append("id", parseInt(userdata.id));
-      //   formData.append("user_id", parseInt(userdata.user_id));
-      //   formData.append("role", userdata.role);
-      //   formData.append("first_name", document.getElementById("firstName").value);
-      //   formData.append("last_name", document.getElementById("lastName").value);
-      //   formData.append("contact_number", document.getElementById("phone").value);
-      //   formData.append("address", userData.address);
-      //   formData.append("avatar", "1234");
-      //   console.log(document.getElementById("phone").value);
-      //   const response = await axios.put(
-      //     "https://localhost:7229/api/User/UpdateProfile",
-      //     formData
-      //   );
+
     } catch (err) {
       setNoti("Error");
     }

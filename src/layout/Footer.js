@@ -12,11 +12,11 @@ function Footer() {
                         <img src={require("../assets/images/logo/logo-06.png")} alt='' />
                     </div>
                     <div className='b_icon'>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-github"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                        <i class="fa-brands fa-google"></i>
+                        <i className="fa-brands fa-facebook"></i>
+                        <i className="fa-brands fa-twitter"></i>
+                        <i className="fa-brands fa-github"></i>
+                        <i className="fa-brands fa-youtube"></i>
+                        <i className="fa-brands fa-google"></i>
                     </div>
                 </div>
                 {footerjson.map((footer, index) => (
@@ -31,7 +31,7 @@ function Footer() {
                 ))}
                 <div className='b_3'>
                     <p className='title'>
-                        <i class="fa-solid fa-envelope"></i>
+                        <i className="fa-solid fa-envelope"></i>
                         <span>Subscribe for Updates! Enter your email to get the latest news.</span>
                     </p>
                     <form onSubmit={(e) => {
