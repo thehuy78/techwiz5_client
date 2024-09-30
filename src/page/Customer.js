@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../style/Customer.scss";
 import Item from "../data/Customer.json";
 import AccountComponent from "../component/AccountComponent";
-import DeliveryInfomation from "../component/DeliveryInfomation";
+
 import ListOrder from "../component/ListOrder";
 import { useCookies } from "react-cookie";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -105,9 +105,8 @@ export default function Customer() {
                   }
                 >
                   <div
-                    className={`item ${
-                      activeIndex === items.id ? "active" : ""
-                    }`}
+                    className={`item ${activeIndex === items.id ? "active" : ""
+                      }`}
                     onClick={() => handleClick(items.id)}
                   >
                     <i class={items.icon}></i>

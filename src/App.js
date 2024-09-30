@@ -24,6 +24,7 @@ import Blogs from "./page/Blogs";
 import { useCookies } from "react-cookie";
 import Aboutus from "./page/Aboutus";
 import AccessReset from "./page/AccessReset";
+import BlogDetail from "./page/BlogDetail";
 function App() {
   const [cookies] = useCookies();
 
@@ -216,6 +217,14 @@ function App() {
           element={
             <LayoutSwitch>
               <Blogs />
+            </LayoutSwitch>
+          }
+        ></Route>
+        <Route
+          path="/blogdetail/:id"
+          element={
+            <LayoutSwitch>
+              <BlogDetail />
             </LayoutSwitch>
           }
         ></Route>

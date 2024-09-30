@@ -201,7 +201,7 @@ export default function ProductDetail() {
         if (res && res.data && res.data.status === 200) {
           setNoti("Add success");
         }
-      } catch (error) {}
+      } catch (error) { }
     } else {
       setTimeout(() => {
         navigate("/login");
@@ -229,7 +229,7 @@ export default function ProductDetail() {
             navigate("/cart");
           }, 500);
         }
-      } catch (error) {}
+      } catch (error) { }
     } else {
       setTimeout(() => {
         navigate("/login");

@@ -140,7 +140,7 @@ export default function Blogs() {
                     <div className='b_item'>
                         <img src={require("../assets/images/kitchen/z5844678843730_4177b2cc93da2c87ab89b25548d54805.jpg")} alt='' />
                         <div className='news_content'>
-                            <Link className='link_tag'> <p className='title'>{item.title}</p>  </Link>
+                            <Link className='link_tag' to={`/blogdetail/${item.id}`}> <p className='title'>{item.title}</p>  </Link>
                             <p className='date'>{formatDate(item.create_at)}</p>
                             <p className='discriber'><Infomation item={item.content} /></p>
                             <p className='author'>Author: {item.author}</p>

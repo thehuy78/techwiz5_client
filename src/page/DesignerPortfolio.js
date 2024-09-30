@@ -9,6 +9,7 @@ import Star from '../component/Star';
 import BlogsItem from '../component/BlogsItem';
 import { apiRequest } from '../hooks/Api/Api';
 import LoadingPage from '../component/LoadingPage';
+import GetImageFirebase from '../function/GetImageFirebase';
 export default function DesignerPortfolio() {
   const { setLayout } = useLayout();
   const [paddingTop, setPaddingTop] = useState(0);
@@ -51,7 +52,7 @@ export default function DesignerPortfolio() {
     } catch (error) {
       console.log(error)
     }
-  }, [])
+  }, [id])
 
   useEffect(() => {
     setTimeout(async () => {
@@ -138,7 +139,7 @@ export default function DesignerPortfolio() {
             </div>
           </div>
           <div className='b_2' style={{ paddingTop: `${paddingTop}px` }}>
-            <img alt='' src={require("../assets/images/home/phongkhach.jpg")} />
+            <img alt='' src={GetImageFirebase(designer.avatar)} />
             <div className='content'>
               <p className='title'>DESIGNER</p>
               <p className='name_designer'>Hello, I'am <span>{designer.first_name} {designer.last_name}</span></p>
