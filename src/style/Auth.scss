@@ -6,6 +6,7 @@
   position: relative;
   width: 100%;
   background-color: var(--cl_bg);
+
   .back_to_home {
     position: absolute;
     inset: 0;
@@ -214,18 +215,12 @@
             }
           }
           .b_btn_gmail {
-            padding: 1rem 0;
-            .btn_email {
-              border-radius: 1rem;
-              outline: none;
-              border: none;
-              width: 100%;
-              font-size: var(--fz_small);
-              font-weight: 700;
-              padding: 0.5rem 0;
-              background-color: orange;
-              color: var(--white);
-            }
+            // padding: 1rem 0;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            background-color: var(--cl_bg);
+            border-radius: 0.5rem;
           }
           .b_icon {
             display: flex;

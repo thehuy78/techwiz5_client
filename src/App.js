@@ -25,6 +25,7 @@ import { useCookies } from "react-cookie";
 import Aboutus from "./page/Aboutus";
 import AccessReset from "./page/AccessReset";
 import BlogDetail from "./page/BlogDetail";
+import FileNotFound from "./page/FileNotFound";
 function App() {
   const [cookies] = useCookies();
 
@@ -234,6 +235,16 @@ function App() {
           element={
             <LayoutSwitch>
               <Aboutus />
+            </LayoutSwitch>
+          }
+        ></Route>
+
+
+        <Route
+          path="*"
+          element={
+            <LayoutSwitch>
+              <FileNotFound />
             </LayoutSwitch>
           }
         ></Route>

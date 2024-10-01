@@ -108,7 +108,7 @@ export default function ProductDetail() {
     }
   }, [])
   useEffect(() => {
-    if (detail) {
+    if (detail && detail.id) {
       setTimeout(async () => {
         fetchReview(detail.id);
       }, 100);
@@ -315,8 +315,8 @@ export default function ProductDetail() {
                 {detail.listimage &&
                   detail.listimage.length > 0 &&
                   detail.listimage.map((item, index) => (
-                    <SwiperSlide>
-                      <div className="b_image" key={index}>
+                    <SwiperSlide key={index}>
+                      <div className="b_image" >
                         <img src={GetImageFirebase(item.imagename)} alt="" />
                       </div>
                     </SwiperSlide>
@@ -335,8 +335,8 @@ export default function ProductDetail() {
                 {detail.listimage &&
                   detail.listimage.length > 0 &&
                   detail.listimage.map((item, index) => (
-                    <SwiperSlide>
-                      <div className="b_image" key={index}>
+                    <SwiperSlide key={index}>
+                      <div className="b_image" >
                         <img src={GetImageFirebase(item.imagename)} alt="" />
                       </div>
                     </SwiperSlide>

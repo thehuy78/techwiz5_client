@@ -142,7 +142,7 @@ export default function Blogs() {
                         <div className='news_content'>
                             <Link className='link_tag' to={`/blogdetail/${item.id}`}> <p className='title'>{item.title}</p>  </Link>
                             <p className='date'>{formatDate(item.create_at)}</p>
-                            <p className='discriber'><Infomation item={item.content} /></p>
+                            <div className='discriber'><Infomation item={item.content} /></div>
                             <p className='author'>Author: {item.author}</p>
 
                         </div>

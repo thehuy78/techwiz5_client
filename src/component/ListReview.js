@@ -91,7 +91,7 @@ export default function ListReview({ review }) {
             <p><Star number={item.score} /></p>
           </div>
           <p className='date____'>{formatDate(item.create_at)}</p>
-          <p><Infomation item={item.comment} /></p>
+          <div><Infomation item={item.comment} /></div>
         </div>
       ))
     ) : (

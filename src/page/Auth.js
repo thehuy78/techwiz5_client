@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useLayout } from "../hooks/Layout/LayoutContext"
 import "../style/Auth.scss"
+import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from 'react-router-dom';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import Company from "../data/Company.json"
-
+import LoadingPage from '../component/LoadingPage';
 import { useCookies } from 'react-cookie';
-import axios from 'axios';
+import { apiRequest } from '../hooks/Api/Api';
+// import axios from 'axios';
 export default function Auth() {
   const { setLayout } = useLayout();
   const [form, setForm] = useState(true);
   const [hasClicked, setHasClicked] = useState(false);
-
+  const [isloading, setIsloading] = useState(false)
   const [showpass, setShowpass] = useState(false)
   const [showpassconfirm, setShowpassConfirm] = useState(false)
   const company = Company;
@@ -110,6 +112,7 @@ export default function Auth() {
       isValid = false;
     }
     if (isValid) {
+      setIsloading(true)
       const formData = {
         email: email,
         password: password,
@@ -119,15 +122,16 @@ export default function Auth() {
         }
       }
       try {
-        // const res = await apiRequest('post', 'AuthUser/Register', formData)
-        const res = await axios.post('https://localhost:7229/api/AuthUser/Register', formData);
-
+        const res = await apiRequest('post', 'AuthUser/Register', formData)
+        // const res = await axios.post('https://localhost:7229/api/', formData);
+        setIsloading(false)
         if (res && res.data && res.data.status === 200) {
-
+          setForm(true)
           setNoti("Success register")
         }
       } catch (error) {
         console.log(error);
+        setIsloading(false)
         setNoti("Error register")
       }
       event.target.reset();
@@ -136,6 +140,9 @@ export default function Auth() {
   }
   const Checklogin = async (event) => {
     event.preventDefault();
+
+    setIsloading(true)
+    setNoti("")
     const emailInput = document.getElementById("email_lg")
     const passwordInput = document.getElementById("pw_lg")
     const email = emailInput.value.trim()
@@ -148,9 +155,11 @@ export default function Auth() {
     }
     var notiLogin = ""
     try {
-      // var res = await apiRequest('post', 'AuthUser/Login', account)
-      const res = await axios.post('https://localhost:7229/api/AuthUser/Login', account);
-      console.log(res);
+      var res = await apiRequest('post', 'AuthUser/Login', account)
+      // const res = await axios.post('https://localhost:7229/api/AuthUser/Login', account);
+
+      setIsloading(false)
+
       if (res && res.data && res.data.data && res.data.status === 200) {
 
         var exp = new Date()
@@ -158,12 +167,15 @@ export default function Auth() {
         setCookie("autherize", res.data.data, { expires: exp })
 
         event.target.reset();
-        notiLogin = "Success Lg"
+        // notiLogin = "Success Lg"
         setTimeout(() => {
           navigate('/');
         }, 500);
       }
     } catch (error) {
+
+      setIsloading(false)
+
       notiLogin = "Error Lg Email"
     }
     setNoti(notiLogin)
@@ -188,9 +200,53 @@ export default function Auth() {
 
 
 
+
+
+
+  useEffect(() => {
+    window.handleCredentialResponse = handleCredentialResponse;
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    document.body.appendChild(script);
+    return () => {
+      delete window.handleCredentialResponse;
+    };
+  }, []);
+
+  const handleCredentialResponse = async (response) => {
+    var resp = jwtDecode(response.credential);
+    console.log(resp);
+    const formData = {
+      email: resp.email,
+      password: "gg",
+      userdetails: {
+        first_name: resp.given_name,
+        last_name: resp.family_name
+      }
+    }
+    var notiLogin = ""
+    try {
+      var res = await apiRequest("Post", "AuthUser/LoginGoogle", formData)
+      if (res && res.data && res.data.data && res.data.status === 200) {
+        var exp = new Date()
+        exp.setHours(exp.getHours() + 1);
+        setCookie("autherize", res.data.data, { expires: exp })
+        // notiLogin = "Success Lg"
+        setTimeout(() => {
+          navigate('/');
+        }, 500);
+      }
+    } catch (error) {
+      notiLogin = "Error Lg Email"
+    }
+    setNoti(notiLogin)
+
+  };
+
   return (
     <section className='auth_container'>
       <NotificationContainer />
+      <LoadingPage isloading={isloading} />
       <Link to={"/"} className='back_to_home'>
         <i className="fa-solid fa-right-to-bracket"></i>
       </Link>
@@ -233,7 +289,25 @@ export default function Auth() {
                 <div className='b_decor'><p className='or'><span>or</span></p></div>
               </form>
               <div className='b_btn_gmail'>
-                <input type='submit' value={"Login with Email"} className='btn_email' />
+                <div className="box_email_login">
+                  <div
+                    id="g_id_onload"
+                    data-client_id="678669696146-eavok6hpljl2uvig7vkgnai0o2n4pk7f.apps.googleusercontent.com"
+                    data-callback="handleCredentialResponse"
+                  ></div>
+
+                  <div
+                    style={{ width: "100%" }}
+                    className="g_id_signin custom"
+                    data-type="standard"
+                    // data-width="100%"
+                    data-size="medium"
+                    data-theme="filled_black"
+                    data-text="continue_with"
+                    data-shape="rectangular"
+                    data-logo_alignment="center"
+                  ></div>
+                </div>
               </div>
               <div className='b_icon'>
                 <i className="fa-brands fa-facebook"></i>

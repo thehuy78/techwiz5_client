@@ -52,9 +52,9 @@ export default function Customer() {
     setNoti("logout");
 
     // Redirect the user after 1 second
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
+    // setTimeout(() => {
+    //   navigate("/login");
+    // }, 1000);
   };
 
   const createNotification = (type) => {

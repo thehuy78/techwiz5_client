@@ -44,22 +44,29 @@ export default function UserInfoCO() {
     console.log(previewImage);
   }, [previewImage]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://localhost:7229/api/User/GetByEmail/" + userdata.email
-        );
 
-        console.log(response.data.data);
-        var data = response.data.data;
-        setUserData(data);
-      } catch (error) {
-      } finally {
-      }
-    };
-    fetchData();
-  }, [userdata]);
+
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        "https://localhost:7229/api/UserFE/GetByEmail/" + userdata.email
+      );
+
+      console.log(response.data.data);
+      var data = response.data.data;
+      setUserData(data);
+    } catch (error) {
+    } finally {
+    }
+  }, [userdata.email]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchData();
+    }, 200);
+
+  }, [fetchData]);
+
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     const fileUrl = URL.createObjectURL(file);
