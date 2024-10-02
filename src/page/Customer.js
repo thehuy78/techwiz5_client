@@ -16,6 +16,7 @@ import BookingItem from "../component/BookingItem";
 import LoadingPage from "../component/LoadingPage";
 import OrderReview from "../component/OrderReview";
 import { jwtDecode } from "jwt-decode";
+import Notification from "../component/Notification";
 export default function Customer() {
   const [activeIndex, setActiveIndex] = useState(Item[0].id);
   const { setLayout } = useLayout();
@@ -138,9 +139,7 @@ export default function Customer() {
               case "order":
                 return <ListOrder />;
               case "notification":
-                return (
-                  <div className="notification_component">Notification</div>
-                );
+                return <Notification />;
               case "review":
                 return <OrderReview />;
               case "bookmark":

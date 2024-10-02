@@ -129,12 +129,14 @@ export default function ProductDetail() {
 
   useEffect(() => {
     const variant = detail?.variants?.[0]?.variantattributes || [];
-
+    //checkdo dai kieu variant
     var a = [
       variant?.[0]?.attributevalue || "",
       variant?.[1]?.attributevalue || "",
       variant?.[2]?.attributevalue || "",
+
     ];
+
     setChosenVariant(a);
   }, [detail]);
 
