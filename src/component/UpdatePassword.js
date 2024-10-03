@@ -5,6 +5,8 @@ import axios from "axios";
 import LoadingPage from '../component/LoadingPage';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import { useNavigate } from "react-router-dom";
+
+import { InvalidPassword } from "../function/CheckInputFormat"
 export default function UpdatePassword() {
   const [showpassold, setShowpassold] = useState(false);
   const [showpassnew, setShowpassnew] = useState(false);
@@ -17,15 +19,31 @@ export default function UpdatePassword() {
 
 
 
-  const [noti, setNoti] = useState("")
+
   const createNotification = (type) => {
     return () => {
+      NotificationManager.removeAll();
       switch (type) {
         case 'Success':
           NotificationManager.success('Update succesfuly!', 'Success', 2000);
           break;
         case 'Error':
-          NotificationManager.error('Update fail!', 'Fail', 2000, () => {
+          NotificationManager.error('Old Password not correct!', 'Fail', 2000, () => {
+            alert('callback');
+          });
+          break;
+        case 'pw':
+          NotificationManager.error('Password must be 8-16 characters!', 'Fail', 2000, () => {
+            alert('callback');
+          });
+          break;
+        case 'pwcf':
+          NotificationManager.error('Password confirm not match!', 'Fail', 2000, () => {
+            alert('callback');
+          });
+          break;
+        case 'op':
+          NotificationManager.error('Password old cannot be left blank!', 'Fail', 2000, () => {
             alert('callback');
           });
           break;
@@ -36,16 +54,24 @@ export default function UpdatePassword() {
     };
   };
 
-  useEffect(() => {
-    if (noti) {
-      createNotification(noti)();
-    }
-  }, [noti]);
 
-  const handleUpdatePassword = () => {
+
+  const handleUpdatePassword = async () => {
     try {
+      if (!InvalidPassword(document.getElementById("newPass").value.trim())) {
+        createNotification("pw")();
+        return
+      }
+      if (document.getElementById("newPass").value.trim() !== document.getElementById("confirmPass").value.trim()) {
+        createNotification("pwcf")();
+        return
+      }
+      if (!document.getElementById("oldPass").value.trim() || document.getElementById("oldPass").value.trim() === "") {
+        createNotification("op")();
+        return
+      }
 
-      setNoti("a")
+
       const formData = new FormData();
       formData.append("email", jwtDecode(cookies.autherize).email);
       formData.append(
@@ -60,18 +86,26 @@ export default function UpdatePassword() {
         "confirmPassowrd",
         document.getElementById("confirmPass").value.trim()
       );
-      const response = axios.put(
+      const res = await axios.put(
         "https://localhost:7229/api/UserFE/UpdatePassword",
         formData
       );
-      setNoti("Success")
+      console.log(res)
+      if (res && res.data && res.data.status === 200) {
+        createNotification("Success")();
+      } else {
+        createNotification("Error")();
+      }
+
+
       setTimeout(() => {
         refForm.current.reset();
       }, 500);
 
     } catch (error) {
-      setNoti("Error")
-
+      console.log("loi")
+      console.log(error)
+      createNotification("Error")();
     }
   };
 

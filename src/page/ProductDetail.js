@@ -19,7 +19,7 @@ import { apiRequest } from "../hooks/Api/Api";
 import LoadingPage from "../component/LoadingPage";
 import GetImageFirebase from "../function/GetImageFirebase";
 import {
-  apiRequestAutherize,
+
   apiRequestAutherizeForm,
 } from "../hooks/Api/ApiAuther";
 import { useCookies } from "react-cookie";
@@ -48,6 +48,7 @@ export default function ProductDetail() {
   const [noti, setNoti] = useState("");
   const createNotification = (type) => {
     return () => {
+      NotificationManager.removeAll();
       switch (type) {
         case "Add success":
           NotificationManager.success(
@@ -205,7 +206,7 @@ export default function ProductDetail() {
   }, [detail]);
 
   const [quantity, setQuantity] = useState(1);
-  const [cookies] = useCookies();
+  const [cookies, removeCookie] = useCookies();
 
   const addtocart = async () => {
     setNoti("a");
@@ -225,7 +226,11 @@ export default function ProductDetail() {
         if (res && res.data && res.data.status === 200) {
           setNoti("Add success");
         }
-      } catch (error) { }
+      } catch (error) {
+        if (error && error.response && error.response.status === 403) {
+          removeCookie("autherize");
+        }
+      }
     } else {
       setTimeout(() => {
         navigate("/login");

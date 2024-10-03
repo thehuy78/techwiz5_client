@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useLayout } from "../hooks/Layout/LayoutContext"
 import "../style/Auth.scss"
 import { jwtDecode } from "jwt-decode";
@@ -19,9 +19,10 @@ export default function Auth() {
   const company = Company;
   const [, setCookie] = useCookies(['autherize']);
   const navigate = useNavigate();
-  const [noti, setNoti] = useState("")
-  const createNotification = (type) => {
+
+  const createNotification = useCallback((type) => {
     return () => {
+      NotificationManager.removeAll();
       switch (type) {
         case 'Success Lg':
           NotificationManager.success('Login succesfuly!', 'Success', 2000);
@@ -48,18 +49,14 @@ export default function Auth() {
           break;
       }
     };
-  };
+  }, []);
 
-  useEffect(() => {
-    if (noti) {
-      createNotification(noti)();
-    }
-  }, [noti]);
+
 
 
   const validateForm = async (event) => {
     event.preventDefault();
-    setNoti("")
+
     const firstNameInput = document.getElementById("fn_re");
     const lastNameInput = document.getElementById("ln_re");
     const emailInput = document.getElementById("email_re");
@@ -127,12 +124,14 @@ export default function Auth() {
         setIsloading(false)
         if (res && res.data && res.data.status === 200) {
           setForm(true)
-          setNoti("Success register")
+          createNotification("Success register")();
+
         }
       } catch (error) {
         console.log(error);
         setIsloading(false)
-        setNoti("Error register")
+        createNotification("Error register")();
+
       }
       event.target.reset();
 
@@ -140,9 +139,7 @@ export default function Auth() {
   }
   const Checklogin = async (event) => {
     event.preventDefault();
-
     setIsloading(true)
-    setNoti("")
     const emailInput = document.getElementById("email_lg")
     const passwordInput = document.getElementById("pw_lg")
     const email = emailInput.value.trim()
@@ -153,32 +150,27 @@ export default function Auth() {
       email: email,
       password: password
     }
-    var notiLogin = ""
     try {
       var res = await apiRequest('post', 'AuthUser/Login', account)
       // const res = await axios.post('https://localhost:7229/api/AuthUser/Login', account);
-
       setIsloading(false)
-
       if (res && res.data && res.data.data && res.data.status === 200) {
-
         var exp = new Date()
         exp.setHours(exp.getHours() + 1);
         setCookie("autherize", res.data.data, { expires: exp })
-
         event.target.reset();
-        // notiLogin = "Success Lg"
+        createNotification("Success Lg")();
+        alert(123)
         setTimeout(() => {
           navigate('/');
         }, 500);
       }
     } catch (error) {
-
       setIsloading(false)
+      createNotification("Error Lg Email")();
 
-      notiLogin = "Error Lg Email"
     }
-    setNoti(notiLogin)
+
   }
 
 
@@ -224,22 +216,24 @@ export default function Auth() {
         last_name: resp.family_name
       }
     }
-    var notiLogin = ""
+
     try {
       var res = await apiRequest("Post", "AuthUser/LoginGoogle", formData)
       if (res && res.data && res.data.data && res.data.status === 200) {
         var exp = new Date()
         exp.setHours(exp.getHours() + 1);
         setCookie("autherize", res.data.data, { expires: exp })
-        // notiLogin = "Success Lg"
+        createNotification("Success Lg")();
+
         setTimeout(() => {
           navigate('/');
         }, 500);
       }
     } catch (error) {
-      notiLogin = "Error Lg Email"
+      createNotification("Error Lg Email")();
+
     }
-    setNoti(notiLogin)
+
 
   };
 

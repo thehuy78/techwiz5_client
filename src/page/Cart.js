@@ -6,9 +6,10 @@ import { useCookies } from 'react-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { apiRequestAutherize } from '../hooks/Api/ApiAuther';
 import GetImageFirebase from '../function/GetImageFirebase';
-import { List } from 'antd';
+
+import { InvalidPhoneNumber } from "../function/CheckInputFormat"
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export default function Cart() {
@@ -32,11 +33,11 @@ export default function Cart() {
 
 
     const [cookies,] = useCookies()
-    const [user, setUser] = useState()
+    const [, setUser] = useState()
     const userData = jwtDecode(cookies.autherize)
 
 
-    const fetchProductDetail = useCallback(async () => {
+    const fetchCart = useCallback(async () => {
         try {
 
             var res = await apiRequestAutherize("Get", `CartFE/get_list_cart`, cookies.autherize)
@@ -57,9 +58,9 @@ export default function Cart() {
 
     useEffect(() => {
         setTimeout(async () => {
-            fetchProductDetail()
+            fetchCart()
         }, 100);
-    }, [fetchProductDetail])
+    }, [fetchCart])
 
     useEffect(() => {
         if (cookies.autherize) {
@@ -72,7 +73,9 @@ export default function Cart() {
         var res = await apiRequestAutherize("Get", `CartFE/remove_cart/${id}`, cookies.autherize)
 
         if (res && res.data && res.data.status === 200) {
-            fetchProductDetail()
+            createNotification("del")()
+
+            fetchCart()
 
         }
 
@@ -121,24 +124,33 @@ export default function Cart() {
     }, [cartCheck]);
 
     const handleOrder = async () => {
-        setNoti("")
+
         setIsloading(true)
         try {
             var fullnameOrder = document.getElementById("fullnameOrder").value;
             var phoneOrder = document.getElementById("phoneOrder").value;
             var address = document.getElementById("addressOrder").value;
             if (fullnameOrder === undefined || fullnameOrder === null || fullnameOrder === "") {
-                setNoti("name")
+
+                createNotification("name")()
                 setIsloading(false)
                 return;
             }
             if (phoneOrder === undefined || phoneOrder === null || phoneOrder === "") {
-                setNoti("phone")
+
+                createNotification("phone")()
                 setIsloading(false)
                 return;
             }
+            if (!InvalidPhoneNumber(phoneOrder.trim())) {
+                createNotification("phoneinvalid")()
+                setIsloading(false)
+                return;
+            }
+
             if (address === undefined || address === null || address === "") {
-                setNoti("address")
+                createNotification("address")();
+
                 setIsloading(false)
                 return;
             }
@@ -153,9 +165,11 @@ export default function Cart() {
             })
 
             const response = await axios.post("https://localhost:7229/api/OrderFE/CreateOrder", formdata)
+            console.log(response)
             setIsloading(false)
-            fetchProductDetail()
-            setNoti("ok")
+            fetchCart()
+            createNotification("ok")();
+
             setTotalPrices(0)
             setTotal(0)
             setCartCheck([])
@@ -173,9 +187,10 @@ export default function Cart() {
 
 
 
-    const [noti, setNoti] = useState("")
+
     const createNotification = (type) => {
         return () => {
+            NotificationManager.removeAll();
             switch (type) {
                 case 'ok':
                     NotificationManager.success('Order succesfuly!', 'Success', 2000);
@@ -189,6 +204,12 @@ export default function Cart() {
                 case 'phone':
                     NotificationManager.error('Input your phone!', 'Error', 2000);
                     break;
+                case 'del':
+                    NotificationManager.success('Delete success!', 'Success', 2000);
+                    break;
+                case 'phoneinvalid':
+                    NotificationManager.error('Phone number Invalid!', 'Error', 2000);
+                    break;
 
 
                 default:
@@ -197,11 +218,7 @@ export default function Cart() {
         };
     };
 
-    useEffect(() => {
-        if (noti) {
-            createNotification(noti)();
-        }
-    }, [noti]);
+
 
 
     return (

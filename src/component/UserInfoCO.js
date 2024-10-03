@@ -7,17 +7,22 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
+
+
+
+import { InvalidPhoneNumber, InvalidString } from "../function/CheckInputFormat"
 export default function UserInfoCO() {
   const [previewImage, setPreviewImage] = useState(
     "https://tinyurl.com/2774tvkx"
   ); // Hình mặc định
   const [userData, setUserData] = useState([]);
-  const [cookies] = useCookies();
+  const [cookies, setCookie] = useCookies();
   const userdata = jwtDecode(cookies.autherize);
 
-  const [noti, setNoti] = useState("");
+
   const createNotification = (type) => {
     return () => {
+      NotificationManager.removeAll();
       switch (type) {
         case "Success":
           NotificationManager.success("Update succesfuly!", "Success", 2000);
@@ -27,6 +32,25 @@ export default function UserInfoCO() {
             alert("callback");
           });
           break;
+        case "fn":
+          NotificationManager.error("First name invalid!", "Update Fail", 3000, () => {
+
+          });
+          break;
+        case "ln":
+          NotificationManager.error("Last name invalid!", "Update Fail", 3000, () => {
+
+          });
+          break;
+        case "phone":
+          NotificationManager.error("Phone number invalid!", "Update Fail", 3000, () => {
+
+          });
+          break;
+
+        case "":
+
+          break;
 
         default:
           break;
@@ -34,11 +58,7 @@ export default function UserInfoCO() {
     };
   };
 
-  useEffect(() => {
-    if (noti) {
-      createNotification(noti)();
-    }
-  }, [noti]);
+
 
   useEffect(() => {
     console.log(previewImage);
@@ -79,8 +99,25 @@ export default function UserInfoCO() {
   });
   const handleUpdateUser = async () => {
     try {
+
+
+      if (!InvalidString(document.getElementById("firstName").value.trim())) {
+        createNotification("fn")()
+
+        return
+      }
+      if (!InvalidString(document.getElementById("lastName").value.trim())) {
+        createNotification("ln")()
+
+        return
+      }
+      if (!InvalidPhoneNumber(document.getElementById("phone").value.trim())) {
+        createNotification("phone")()
+
+        return
+      }
       const fData = new FormData();
-      fData.append("user_id", 1);
+      fData.append("user_id", userdata.id);
       fData.append(
         "first_name",
         document.getElementById("firstName").value.trim()
@@ -91,17 +128,26 @@ export default function UserInfoCO() {
       );
       fData.append("phone", document.getElementById("phone").value.trim());
       //   fData.append("email", document.getElementById("phone").value.trim());
-      const response = await axios.put(
+      const res = await axios.put(
         "https://localhost:7229/api/UserFE/UpdateProfile",
         fData
       );
-      console.log(response)
-      setNoti("Success");
+      if (res && res.data && res.data.data && res.data.status === 200) {
+
+        var exp = new Date()
+        exp.setHours(exp.getHours() + 1);
+        setCookie("autherize", res.data.data, { expires: exp })
+        createNotification("Success")()
+      }
+
+
 
 
     } catch (err) {
-      setNoti("Error");
+      createNotification("Error")()
+
     }
+
   };
 
   return (
