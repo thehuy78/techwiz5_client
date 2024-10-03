@@ -65,13 +65,11 @@ function App() {
         <Route
           path="/login"
           element={
-            cookies && cookies.autherize ? (
+            
               <LayoutSwitch>
                 <Auth />
               </LayoutSwitch>
-            ) : (
-              <Navigate to="/customer" />
-            )
+          
           }
 
         ></Route>
