@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/techwiz5_client/static/css/main.4b9dafdb.css",
-    "main.js": "/techwiz5_client/static/js/main.78e0d9fa.js",
+    "main.css": "/techwiz5_client/static/css/main.90c36810.css",
+    "main.js": "/techwiz5_client/static/js/main.f500b9e5.js",
     "static/js/453.6d6489c0.chunk.js": "/techwiz5_client/static/js/453.6d6489c0.chunk.js",
     "static/media/login.gif": "/techwiz5_client/static/media/login.1e2bc269951ca9fa786f.gif",
     "static/media/backgroundhome.jpg": "/techwiz5_client/static/media/backgroundhome.872043f792662ede003a.jpg",
     "static/media/404.gif": "/techwiz5_client/static/media/404.abe1d07792459bcb8f49.gif",
     "static/media/forgot.jpg": "/techwiz5_client/static/media/forgot.24521220c0aee13a907d.jpg",
     "static/media/changepassword.jpg": "/techwiz5_client/static/media/changepassword.441ed198c38de3fb34c8.jpg",
+    "static/media/des.png": "/techwiz5_client/static/media/des.50d7c0214dbe274ee7c7.png",
     "static/media/badrooom.jpg": "/techwiz5_client/static/media/badrooom.f4414d33048e27bff774.jpg",
     "static/media/linh.jpg": "/techwiz5_client/static/media/linh.fd5957ecc39a984c26e1.jpg",
     "static/media/NHAN.jpg": "/techwiz5_client/static/media/NHAN.896ea240829c9b637aea.jpg",
@@ -34,7 +35,6 @@
     "static/media/z5844678848607_jpg": "/techwiz5_client/static/media/z5844678848607_4c9d52b2b758bb16e3c4dbd1bd2f95fd.391888eeb8caab83fb3b.jpg",
     "static/media/z5844677826345_jpg": "/techwiz5_client/static/media/z5844677826345_a60e53bfd92236136bee3009ee5025ac.c571842420b15c056187.jpg",
     "static/media/z5844677415181_jpg": "/techwiz5_client/static/media/z5844677415181_af71fe1fa920709add6ccea623900155.c480ab4f062020d8405a.jpg",
-    "static/media/z5844677430200_jpg": "/techwiz5_client/static/media/z5844677430200_3cee227ab777728fc58ffa6a109fe2f9.c091ca4f18e2a0617a53.jpg",
     "static/media/brand.png": "/techwiz5_client/static/media/brand.64702de8cc6f7b0f40e5.png",
     "static/media/z5844678843730_jpg": "/techwiz5_client/static/media/z5844678843730_4177b2cc93da2c87ab89b25548d54805.93834ea2cc3dc086e897.jpg",
     "static/media/giu.jpg": "/techwiz5_client/static/media/giu.762629eeec9089429f53.jpg",
@@ -43,6 +43,7 @@
     "static/media/z5844677192960_jpg": "/techwiz5_client/static/media/z5844677192960_eea356a86888843b14ff66810a006609.3374e1370b1e191734ed.jpg",
     "static/media/bathroom.jpg": "/techwiz5_client/static/media/bathroom.3bb1e81a4118b19d0bc5.jpg",
     "static/media/z5844677191978_jpg": "/techwiz5_client/static/media/z5844677191978_578a51d879db1fd568d9e1d52fb1cd83.a4671dd5f73b96da6565.jpg",
+    "static/media/designerpofolio.jpg": "/techwiz5_client/static/media/designerpofolio.59d2f2ad6af0bdd74fb2.jpg",
     "static/media/z5844677181849_jpg": "/techwiz5_client/static/media/z5844677181849_b0dfa64c200ebae8797d786fe9b44b55.8b0e0fe69ce254f592d6.jpg",
     "static/media/bedroom.jpg": "/techwiz5_client/static/media/bedroom.5588450f1a5b059a495e.jpg",
     "static/media/z5844677409303_jpg": "/techwiz5_client/static/media/z5844677409303_eb4c09c1d806c09caa21debd19adddff.9595b9fef5ab9339f5be.jpg",
@@ -78,12 +79,12 @@
     "static/media/slick.ttf": "/techwiz5_client/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/techwiz5_client/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/techwiz5_client/index.html",
-    "main.4b9dafdb.css.map": "/techwiz5_client/static/css/main.4b9dafdb.css.map",
-    "main.78e0d9fa.js.map": "/techwiz5_client/static/js/main.78e0d9fa.js.map",
+    "main.90c36810.css.map": "/techwiz5_client/static/css/main.90c36810.css.map",
+    "main.f500b9e5.js.map": "/techwiz5_client/static/js/main.f500b9e5.js.map",
     "453.6d6489c0.chunk.js.map": "/techwiz5_client/static/js/453.6d6489c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b9dafdb.css",
-    "static/js/main.78e0d9fa.js"
+    "static/css/main.90c36810.css",
+    "static/js/main.f500b9e5.js"
   ]
 }
