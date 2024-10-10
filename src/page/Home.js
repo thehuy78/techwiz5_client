@@ -351,7 +351,7 @@ export default function Home() {
                 </div>
               </div>
             )}
-            {designer && designer.length >= 1 && (
+            {designer && designer.length > 1 && (
               <div className="b_item">
                 <div className="item">
                   <div className="b_img">
@@ -370,7 +370,7 @@ export default function Home() {
             )}
           </div>
           <div className="right">
-            {designer && designer.length >= 2 && (
+            {designer && designer.length > 2 && (
               <div className="b_item">
                 <div className="item">
                   <div className="b_img">
@@ -387,7 +387,7 @@ export default function Home() {
                 </div>
               </div>
             )}
-            {designer && designer.length >= 3 && (
+            {designer && designer.length > 3 && (
               <div className="b_item">
                 <div className="item">
                   <div className="b_img">

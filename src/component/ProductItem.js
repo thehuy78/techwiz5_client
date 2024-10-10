@@ -14,7 +14,7 @@ export default function ProductItem({ pro }) {
                 <div className='b_1_content'>
                     <div className='b_typeroom_content'>
                         <p className='type_room'>{pro.functionality_name} </p>
-                        <i className="fa-regular fa-bookmark"></i>
+                        {/* <i className="fa-regular fa-bookmark"></i> */}
                     </div>
 
                     <Link className="link_tag" to={`/detail/${pro.id}`}><p className='name_pro'>{pro.productName}</p></Link>

@@ -357,7 +357,7 @@ export default function ProductDetail() {
                   <p>{detail.brand}</p>
                 </div>
                 <div className="b_bookmark">
-                  <i className="fa-regular fa-bookmark"></i>
+                  {/* <i className="fa-regular fa-bookmark"></i> */}
                 </div>
               </div>
               <div className="name_details">

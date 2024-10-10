@@ -65,24 +65,22 @@ function App() {
         <Route
           path="/login"
           element={
-            
-              <LayoutSwitch>
-                <Auth />
-              </LayoutSwitch>
-          
+
+            <LayoutSwitch>
+              <Auth />
+            </LayoutSwitch>
+
           }
 
         ></Route>
         <Route
           path="/forgot"
           element={
-            cookies && cookies.autherize ? (
-              <LayoutSwitch>
-                <ForgotPassword />
-              </LayoutSwitch>
-            ) : (
-              <Navigate to="/customer" />
-            )
+
+            <LayoutSwitch>
+              <ForgotPassword />
+            </LayoutSwitch>
+
           }
 
         ></Route>

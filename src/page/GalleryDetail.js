@@ -258,7 +258,7 @@ export default function GalleryDetail() {
               </div>
               <div className='item'>
                 <i className="fa-solid fa-clipboard"></i>
-                <p>14 Items</p>
+                <p>{detail.product_count} Items</p>
               </div>
             </div>
           </div>

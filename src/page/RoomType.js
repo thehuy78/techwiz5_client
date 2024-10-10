@@ -3,7 +3,7 @@ import "../style/RoomType.scss";
 import GalleryItem from "../component/GalleryItem";
 import Slider from "react-slick";
 import { useLayout } from "../hooks/Layout/LayoutContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import parse from "html-react-parser";
 
 import living from "../assets/images/backgroundHor/livingroom.jpg";
@@ -15,6 +15,8 @@ import outdoor from "../assets/images/backgroundHor/outdoor.jpg";
 import { apiRequest } from "../hooks/Api/Api";
 import GetImageFirebase from "../function/GetImageFirebase";
 import LoadingPage from "../component/LoadingPage";
+import { useCookies } from "react-cookie";
+import { jwtDecode } from "jwt-decode";
 
 export default function RoomType() {
   const sec2Ref = useRef(null);
@@ -130,7 +132,7 @@ export default function RoomType() {
   const fetchGallery = useCallback(async (url) => {
     try {
       var res = await apiRequest("GET", `GalleryFE/GetByRoomTypeUrl/${url}`);
-
+      console.log(res)
       if (res && res.data && res.data.status === 200) {
         const gallery = res.data.data;
         setGallery(gallery);
@@ -206,6 +208,36 @@ export default function RoomType() {
         break;
     }
   }, [name, fetchGallery, fetchGalleryNew]);
+
+
+
+
+  const navigate = useNavigate()
+  const [cookies] = useCookies();
+  const [bookmark, setBookmark] = useState([])
+  const fetchbookmark = useCallback(async () => {
+    try {
+      if (!cookies.autherize) {
+        // navigate("/login")
+        return
+      }
+      const userdata = jwtDecode(cookies.autherize);
+      var res = await apiRequest("Get", `BookmarkFE/Getall/${userdata.id}`)
+      console.log(res)
+      if (res && res.data && res.data.status === 200) {
+        setBookmark(res.data.data)
+      }
+
+    } catch (error) {
+
+    }
+  }, [cookies.autherize])
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchbookmark()
+    }, 200);
+  }, [fetchbookmark])
 
   return (
     <div className="room_type_page">
@@ -419,7 +451,7 @@ export default function RoomType() {
               {...settings}
             >
               {gallery.map((gallery, index) => (
-                <GalleryItem item={gallery} key={index} />
+                <GalleryItem item={gallery} bookmark={bookmark} callbackfn={fetchbookmark} key={index} />
               ))}
             </Slider>
           )}

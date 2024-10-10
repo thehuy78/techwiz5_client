@@ -8,15 +8,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ 50% */
+    background-color: rgba(0, 0, 0, 0.7); /* Màu đen với độ mờ 50% */
     z-index: -1; /* Để lớp phủ nằm dưới nội dung nhưng trên hình nền */
   }
   .sec1 {
     position: relative; /* Để lớp phủ nằm chính xác trên background */
     width: 100%;
     aspect-ratio: 16/6;
-    background-image: url("../assets/images/main/backgroundhome.jpg");
-    background-position: top center;
+    background-image: url("../assets/images/background/designerpofolio.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -199,9 +199,9 @@
         display: grid;
         grid-template-columns: 1fr 1.3fr;
         img {
-          width: 70%;
+          width: 50%;
           margin: auto;
-          aspect-ratio: 1.5/1;
+          aspect-ratio: 1/1;
           border-radius: 1rem;
         }
         .content {
@@ -654,6 +654,200 @@
               color: var(--cl_second);
             }
           }
+        }
+      }
+    }
+  }
+  .sec8 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    color: white;
+    display: flex;
+    gap: 2rem;
+    .left {
+      width: 35%;
+      padding: 1rem;
+      //background-color: white;
+      //color: var(--cl_bg);
+      .f_1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title__ {
+          font-size: var(--fz_medium);
+          font-weight: 900;
+        }
+        .link_tag {
+          color: orange;
+          p {
+            font-weight: 800;
+            font-size: var(--fz_small);
+          }
+        }
+      }
+      .list_img {
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+        img {
+          width: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+    }
+    .right {
+      width: 65%;
+      padding: 1rem;
+      //background-color: black;
+      .r_1 {
+        padding-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        .r_1_title {
+          font-size: var(--fz_medium);
+          font-weight: 900;
+        }
+      }
+      .time_line {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 35rem;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        gap: 1rem;
+        .item_story {
+          width: 100%;
+          background-color: var(--shadow-white);
+          padding: 1rem;
+          border-radius: 0.5rem;
+          .info_item {
+            display: flex;
+            gap: 0.5rem;
+
+            img {
+              width: 6%;
+              aspect-ratio: 1/1;
+              overflow: hidden;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            .name_date {
+              display: flex;
+              flex-direction: column;
+              gap: 0.2rem;
+              .name {
+                font-weight: 800;
+                text-transform: capitalize;
+              }
+              .create_date {
+                font-size: var(--fz_smallmax);
+                cursor: pointer;
+              }
+            }
+          }
+          .b_content {
+            width: 100%;
+            padding-top: 1rem;
+            .box_des {
+              .content {
+                display: inline;
+                overflow: hidden;
+
+                text-overflow: ellipsis;
+                width: 10ch; /* Hiển thị tối đa 10 ký tự */
+              }
+              .btn___ {
+                padding: 0 1rem;
+                font-size: var(--fz_small);
+                cursor: pointer;
+                color: orange;
+                font-weight: 700;
+              }
+            }
+
+            .gallary_story {
+              width: 100%;
+              .b_1img {
+                width: 100%;
+              }
+              .b_3img {
+                display: grid;
+                grid-template-areas:
+                  "img1 img2"
+                  "img1 img3";
+                gap: 10px; // Khoảng cách giữa các ảnh, nếu bạn muốn
+
+                img:nth-child(1) {
+                  grid-area: img1;
+                  height: 100%;
+                }
+                img:nth-child(2) {
+                  grid-area: img2;
+                }
+                img:nth-child(3) {
+                  grid-area: img3;
+                }
+              }
+              img {
+                width: 100%;
+                aspect-ratio: 2/1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-content {
+      position: relative;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+      .modal-image {
+        max-width: 100%;
+        max-height: 80vh;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: var(--fz_large);
+        background-color: orange;
+        aspect-ratio: 1/1;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        color: #333;
+
+        &:hover {
+          color: #f00;
         }
       }
     }

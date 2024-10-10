@@ -8,6 +8,9 @@ import { useLayout } from "../hooks/Layout/LayoutContext";
 
 import { apiRequest } from '../hooks/Api/Api';
 import LoadingPage from '../component/LoadingPage';
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { jwtDecode } from 'jwt-decode';
 export default function Collection() {
     let sliderRef = useRef(null);
     let sliderRef1 = useRef(null);
@@ -140,6 +143,38 @@ export default function Collection() {
 
 
 
+
+
+    const navigate = useNavigate()
+    const [cookies] = useCookies();
+    const [bookmark, setBookmark] = useState([])
+    const fetchbookmark = useCallback(async () => {
+        try {
+            if (!cookies.autherize) {
+
+                return
+            }
+            const userdata = jwtDecode(cookies.autherize);
+            var res = await apiRequest("Get", `BookmarkFE/Getall/${userdata.id}`)
+            console.log(res)
+
+            if (res && res.data && res.data.status === 200) {
+                setBookmark(res.data.data)
+            }
+
+        } catch (error) {
+
+        }
+    }, [cookies.autherize])
+
+    useEffect(() => {
+        setTimeout(() => {
+            fetchbookmark()
+        }, 200);
+    }, [fetchbookmark])
+
+
+
     var kitchen = `url(${require("../assets/images/kitchen/z5844678842798_e549c4a061b0389dfcc45b04ba368bbe.jpg")})`;
     var bedroom = `url(${require("../assets/images/bedroom/z5844680924585_b5d3a930edc20f8b55f0fd27e847c1e9.jpg")})`;
     var livingroom = `url(${require("../assets/images/livingroom/z5844676588843_5038f03bf0ecd2f0c6bc4b075fad7788.jpg")})`;
@@ -246,7 +281,7 @@ export default function Collection() {
                                 {...settings}
                             >{
                                     gallery && gallery.length > 0 && gallery.map((items, index) => (
-                                        <GalleryItemComlumn item={items} key={index} />
+                                        <GalleryItemComlumn item={items} bookmark={bookmark} callbackfn={fetchbookmark} key={index} />
                                     ))
                                 }
                             </Slider>

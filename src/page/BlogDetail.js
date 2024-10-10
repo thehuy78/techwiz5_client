@@ -69,14 +69,20 @@ export default function BlogDetail() {
                 </div>
                 <div className='right'>
                     <div className='container_r'>
-                        <img src={GetImageFirebase(blog.interior_designer.avatar)} alt='avatar' />
+                        <img src={blog.interior_designer.avatar ? GetImageFirebase(blog.interior_designer.avatar) : "https://tinyurl.com/2774tvkx"} alt='avatar' />
                         <div className='b_name'>
-                            <p className='f_name'>{blog.interior_designer.first_name}</p>
-                            <p className='l_name'>{blog.interior_designer.last_name}</p>
+                            <p className='f_name'>{blog.interior_designer.first_name ? blog.interior_designer.first_name : "Decor"}</p>
+                            <p className='l_name'>{blog.interior_designer.last_name ? blog.interior_designer.last_name : "Vista"}</p>
                         </div>
-                        <p className='phone_contact'>Contact Number: <span>{blog.interior_designer.contact_number}</span></p>
-                        <p className='specialization'>Specialization: <span>{blog.interior_designer.specialization}</span></p>
-                        <p className='experience'>Experience: <span>{blog.interior_designer.yearsofexperience}</span></p>
+
+                        <p className='phone_contact'>Contact Number: <span>{blog.interior_designer.contact_number ? blog.interior_designer.contact_number : ""}</span></p>
+                        {blog.interior_designer.specialization && (
+                            <p className='specialization'>Specialization: <span>{blog.interior_designer.specialization}</span></p>
+                        )}
+
+                        {blog.interior_designer.yearsofexperience && (
+                            <p className='experience'>Experience: <span>{blog.interior_designer.yearsofexperience}</span></p>
+                        )}
 
                     </div>
                 </div>

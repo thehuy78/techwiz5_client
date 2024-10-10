@@ -1,9 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import "../style/GalleryItem.scss"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import GetImageFirebase from '../function/GetImageFirebase';
 import parse from 'html-react-parser';
-export default function GalleryItem({ item }) {
+import { apiRequest } from '../hooks/Api/Api';
+import { useCookies } from 'react-cookie';
+import { jwtDecode } from 'jwt-decode';
+
+export default function GalleryItem({ item, callbackfn, bookmark }) {
+
+
 
     const [listImage, setListImage] = useState([])
     const parserImage = useCallback(() => {
@@ -25,12 +31,48 @@ export default function GalleryItem({ item }) {
     }, [parserImage]);
 
 
+    const [cookies] = useCookies();
+    const navigate = useNavigate()
+
+    const handleBookmark = async (id) => {
+        try {
+            if (!cookies.autherize) {
+                navigate("/login")
+            }
+            const userdata = jwtDecode(cookies.autherize);
+            console.log(userdata)
+            const bookmarkres = {
+                id_user: userdata.id,
+                id_gallery: id
+            }
+            var res = await apiRequest("post", "BookmarkFE/SaveBookmark", bookmarkres)
+            console.log(res)
+            if (res.data.status === 200) {
 
 
+
+                callbackfn()
+            } else {
+                alert("no")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const checkbookmark = (id) => {
+        console.log(bookmark.some(item => item.gallery_id === id))
+        return bookmark.some(item => item.gallery_id === id);
+    }
     return (
         <div className='galleryItem_CO'>
+
             <div className='b_info'>
-                <p className='name_company'>DECOR VISTA</p>
+                <div className='b_1'>
+                    <p className='name_company'>DECOR VISTA</p>
+                    <i className={checkbookmark(item.id) ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} onClick={() => handleBookmark(item.id)}></i>
+                </div>
+
                 <p className='name_gallery'>{item ? item.name : ""}</p>
                 <p className='discription'> {item ? parse(item.description) : ""}</p>
                 <div className='list_data'>
@@ -39,7 +81,7 @@ export default function GalleryItem({ item }) {
                         <p className='title'>Bookmarks</p>
                     </div>
                     <div className='item'>
-                        <p className='number'>25</p>
+                        <p className='number'>{item.product_count}</p>
                         <p className='title'>Items</p>
                     </div>
                     <div className='item'>
@@ -74,7 +116,7 @@ export default function GalleryItem({ item }) {
 
 
 
-export const GalleryItemComlumn = ({ item }) => {
+export const GalleryItemComlumn = ({ item, callbackfn, bookmark }) => {
 
 
     const [listImage, setListImage] = useState([])
@@ -95,10 +137,47 @@ export const GalleryItemComlumn = ({ item }) => {
     useEffect(() => {
         parserImage();
     }, [parserImage]);
+
+
+    const [cookies] = useCookies();
+    const navigate = useNavigate()
+
+    const handleBookmark = async (id) => {
+        try {
+            if (!cookies.autherize) {
+                navigate("/login")
+            }
+            const userdata = jwtDecode(cookies.autherize);
+            console.log(userdata)
+            const bookmarkres = {
+                id_user: userdata.id,
+                id_gallery: id
+            }
+            var res = await apiRequest("post", "BookmarkFE/SaveBookmark", bookmarkres)
+            console.log(res)
+            if (res.data.status === 200) {
+
+                callbackfn()
+            } else {
+                alert("no")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const checkbookmark = (id) => {
+        console.log(bookmark.some(item => item.gallery_id === id))
+        return bookmark.some(item => item.gallery_id === id);
+    }
     return item && (
         <div className='galleryItem_CO_column'>
+
             <div className='b_info'>
-                <p className='name_company'>DECOR VISTA</p>
+                <div className='b_1'>
+                    <p className='name_company'>DECOR VISTA</p>
+                    <i className={checkbookmark(item.id) ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} onClick={() => handleBookmark(item.id)}></i>
+                </div>
                 <p className='name_gallery'>{item.name}</p>
                 <p className='discription'>{parse(item.description)}</p>
                 <div className='list_data'>
@@ -107,7 +186,7 @@ export const GalleryItemComlumn = ({ item }) => {
                         <p className='title'>Bookmarks</p>
                     </div>
                     <div className='item'>
-                        <p className='number'>25</p>
+                        <p className='number'>{item.product_count}</p>
                         <p className='title'>Items</p>
                     </div>
                     <div className='b_btn'>

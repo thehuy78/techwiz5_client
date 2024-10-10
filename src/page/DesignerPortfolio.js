@@ -37,7 +37,7 @@ export default function DesignerPortfolio() {
   const fetchDesigner = useCallback(async () => {
     try {
       var res = await apiRequest('GET', `DesigneFE/GetById/${id}`)
-
+      console.log(res.data.data)
       if (res && res.data && res.data.status === 200) {
         if (res.data.data === null) {
           navigator("/")
@@ -90,6 +90,33 @@ export default function DesignerPortfolio() {
   const previous = () => {
     sliderRef.slickPrev();
   };
+
+
+
+  const [isExpanded, setIsExpanded] = useState(false);
+  const text = "Today I'm sharing the second leg of my recent 12-day road trip around northern Spain with my friend Becky: the beautiful province of La Rioja, just over an hour's drive south of our starting point Bilbao on the other side of the Sierra Cantabria mountain range. La Rioja is world-famous for its high-quality wines and contains three separate wine-making regions"
+  const displayText = (text) => {
+    return isExpanded ? text : text.slice(0, 100) + '...';
+  }
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+
+  //modal render 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
+  const openModal = (image) => {
+    setCurrentImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setCurrentImage(null);
+  };
+
 
 
   return designer && (
@@ -200,6 +227,104 @@ export default function DesignerPortfolio() {
           </div>
         </div>
       </section>
+
+      <section className='sec8'>
+        <div className='left'>
+          <div className='f_1'>
+            <p className='title__'>Degree</p>
+            <Link className='link_tag'>
+              <p>See all</p>
+            </Link>
+          </div>
+
+          <div className='list_img'>
+            {Array(6).fill().map((index) => (
+              <img src={require("../assets/images/background/des.png")}
+                onClick={() => openModal(require("../assets/images/background/des.png"))}
+                key={index} alt='' />
+            ))}
+          </div>
+        </div>
+        <div className='right'>
+          <div className='r_1'>
+            <p className='r_1_title'>Article</p>
+            <div className='r_1_filter'>
+              <input type='date' />
+              <input type='date' />
+            </div>
+          </div>
+          <div className='time_line'>
+            <div className='item_story'>
+              <div className='info_item'>
+                <img alt='' src={GetImageFirebase(designer.avatar)} />
+                <div className='name_date'>
+                  <p className='name'>Nguyen the huy</p>
+                  <p className='create_date'>12/12/1222</p>
+                </div>
+              </div>
+              <div className='b_content'>
+
+                <div className='box_des'>
+                  <p className="content">{displayText(text)}
+                    <span className='btn___' onClick={handleToggle}>
+                      {isExpanded ? 'Collapse' : 'See more'}</span>
+                  </p>
+
+                </div>
+
+                <div className='gallary_story'>
+                  <div className='b_1img'>
+                    <img alt='' src={require("../assets/images/background/kitchen.jpg")} />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div className='item_story'>
+              <div className='info_item'>
+                <img alt='' src={GetImageFirebase(designer.avatar)} />
+                <div className='name_date'>
+                  <p className='name'>Nguyen the huy</p>
+                  <p className='create_date'>12/12/1222</p>
+                </div>
+              </div>
+              <div className='b_content'>
+
+                <div className='box_des'>
+                  <p className="content">{displayText(text)}
+                    <span className='btn___' onClick={handleToggle}>
+                      {isExpanded ? 'Collapse' : 'See more'}</span>
+                  </p>
+
+                </div>
+
+                <div className='gallary_story'>
+                  <div className='b_3img'>
+                    <img alt='' src={require("../assets/images/background/kitchen.jpg")} />
+
+                    <img alt='' src={require("../assets/images/background/kitchen.jpg")} />
+
+                    <img alt='' src={require("../assets/images/background/kitchen.jpg")} />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='sec3'>
+        <div className='b_sec3'>
+
+          <p className='title_portfolio_info'>Portfolio Information</p>
+
+          <div className='list_show'>
+            <Infomation item={designer.portfolio} />
+          </div>
+        </div>
+
+      </section>
       <section className='sec7'>
         <div className='sec7_container'>
           <Slider {...settings}>
@@ -222,17 +347,6 @@ export default function DesignerPortfolio() {
 
           </Slider>
         </div>
-      </section>
-      <section className='sec3'>
-        <div className='b_sec3'>
-
-          <p className='title_portfolio_info'>Portfolio Information</p>
-
-          <div className='list_show'>
-            <Infomation item={designer.portfolio} />
-          </div>
-        </div>
-
       </section>
       <section className='sec5'>
         <div className='b_sec5'>
@@ -285,7 +399,14 @@ export default function DesignerPortfolio() {
           </div>
         </div>
       </section>
-
+      {isModalOpen && (
+        <div className='modal'>
+          <div className='modal-content'>
+            <span className='close-button' onClick={closeModal}>&times;</span>
+            <img src={currentImage} alt='' className='modal-image' />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

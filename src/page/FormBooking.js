@@ -10,6 +10,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import { jwtDecode } from 'jwt-decode';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
+import GetImageFirebase from '../function/GetImageFirebase';
 export default function FormBooking() {
   const { setLayout } = useLayout();
   const [isLoading, setIsLoading] = useState(false);
@@ -205,7 +206,7 @@ export default function FormBooking() {
               <div className='b_item'>
                 <div className='background_hie'></div>
                 <div className='b_img'>
-                  <img src="https://tinyurl.com/2774tvkx" alt='' />
+                  <img src={designer.avatar ? GetImageFirebase(designer.avatar) : "https://tinyurl.com/2774tvkx"} alt='' />
                 </div>
                 <div className='content_profile'>
                   <p className='name'>{designer.first_name} {designer.last_name}</p>

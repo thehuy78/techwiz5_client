@@ -180,24 +180,34 @@ export default function ListOrder() {
                     <p>Status</p>
                     <p>Action</p>
                 </div>
-                <div className='list_order_container'>
-                    {renderProducts()}
-                </div>
-                <div className="pagination">
-                    <button
-                        onClick={() => handleClick(currentPage - 1)}
-                        disabled={currentPage === 1}
-                    >
-                        Prev
-                    </button>
-                    {renderPagination()}
-                    <button
-                        onClick={() => handleClick(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                    >
-                        Next
-                    </button>
-                </div>
+                {orders && orders.length > 0 ? (
+                    <>
+                        <div className='list_order_container'>
+                            {renderProducts()}
+                        </div>
+                        <div className="pagination">
+                            <button
+                                onClick={() => handleClick(currentPage - 1)}
+                                disabled={currentPage === 1}
+                            >
+                                Prev
+                            </button>
+                            {renderPagination()}
+                            <button
+                                onClick={() => handleClick(currentPage + 1)}
+                                disabled={currentPage === totalPages}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    </>
+                )
+                    : (
+                        <p style={{ textAlign: "center", color: "orange", padding: "2rem 0" }}>Data not found</p>
+                    )
+                }
+
+
             </div>
         </div>
     )

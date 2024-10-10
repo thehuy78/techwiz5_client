@@ -17,6 +17,7 @@ import LoadingPage from "../component/LoadingPage";
 import OrderReview from "../component/OrderReview";
 import { jwtDecode } from "jwt-decode";
 import Notification from "../component/Notification";
+import BookmarkCO from "../component/BookmarkCO";
 export default function Customer() {
   const [activeIndex, setActiveIndex] = useState(Item[0].id);
   const { setLayout } = useLayout();
@@ -143,7 +144,8 @@ export default function Customer() {
               case "review":
                 return <OrderReview />;
               case "bookmark":
-                return <div className="support_component">Incomming...</div>;
+                console.log("hehe")
+                return <BookmarkCO />;
               case "logout":
                 return null;
               default:

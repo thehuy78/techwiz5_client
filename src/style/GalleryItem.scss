@@ -6,10 +6,18 @@
     gap: 1rem;
     .b_info {
         width: 100%;
-        .name_company {
-            font-size: var(--fz_small);
-            font-weight: 800;
-            color: orange;
+        .b_1 {
+            display: flex;
+            justify-content: space-between;
+            .name_company {
+                font-size: var(--fz_small);
+                font-weight: 800;
+                color: orange;
+            }
+            i {
+                color: orange;
+                font-size: var(--fz_medium);
+            }
         }
         .name_gallery {
             font-size: var(--fz_medium);
@@ -141,11 +149,20 @@
     gap: 1rem;
     .b_info {
         width: 100%;
-        .name_company {
-            font-size: var(--fz_small);
-            font-weight: 800;
-            color: orange;
+        .b_1 {
+            display: flex;
+            justify-content: space-between;
+            .name_company {
+                font-size: var(--fz_small);
+                font-weight: 800;
+                color: orange;
+            }
+            i {
+                color: orange;
+                font-size: var(--fz_medium);
+            }
         }
+
         .name_gallery {
             font-size: var(--fz_medium);
             font-weight: 800;
