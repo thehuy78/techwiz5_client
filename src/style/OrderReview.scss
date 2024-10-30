@@ -1,0 +1,189 @@
+.list_order_review {
+  padding: 1rem 2rem;
+  .title_order_review {
+    font-size: var(--fz_medium);
+    font-weight: 800;
+  }
+  .list_order_item {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 30rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+
+    .item {
+      padding: 1rem 1rem;
+      background-color: var(--cl_bg);
+      color: white;
+      border-radius: 1rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr 5fr 2fr;
+      // align-items: center;
+      height: fit-content;
+      .img_pro {
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+      .date {
+        padding: 1rem;
+      }
+      .info_product {
+        .name {
+          color: white;
+
+          font-weight: 700;
+          line-height: 1.1rem;
+          height: 2.2rem;
+
+          line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+        .list_varriant {
+          display: flex;
+          gap: 1rem;
+          p {
+            background-color: orange;
+            padding: 0.3rem 1rem;
+            font-size: var(--fz_smallmax);
+            font-weight: 700;
+          }
+        }
+      }
+
+      button {
+        height: fit-content;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-content {
+      position: relative;
+      background-color: white;
+      padding: 1rem 5rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 1200px;
+      max-height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+      .b_modals {
+        background-color: white;
+        .item {
+          padding: 1rem 1rem;
+          //background-color: var(--cl_bg);
+          //color: white;
+          border-radius: 1rem;
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: 1fr 5fr 3fr;
+          // align-items: center;
+          height: fit-content;
+          .img_pro {
+            width: 100%;
+            aspect-ratio: 1/1;
+          }
+          .date {
+            padding: 1rem;
+          }
+          .info_product {
+            .name {
+              //color: white;
+
+              font-weight: 700;
+              line-height: 2rem;
+              height: 4rem;
+              font-size: var(--fz_large);
+              line-clamp: 2;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+            }
+            .list_varriant {
+              display: flex;
+              gap: 1rem;
+              p {
+                background-color: orange;
+                padding: 0.3rem 1rem;
+                font-size: var(--fz_smallmax);
+                font-weight: 700;
+              }
+            }
+          }
+
+          button {
+            padding: 0.5rem 1rem;
+          }
+        }
+        .b__cmt {
+          width: 100%;
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: 8fr 2fr;
+
+          .b_input {
+            width: 100%;
+            height: 5rem;
+            outline: none;
+            border: 0.1rem solid orange;
+            padding: 0.3rem 1rem;
+          }
+          .btn_send_feedback {
+            height: fit-content;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background-color: orange;
+            color: white;
+            font-weight: 800;
+            box-shadow: 0.1rem 0.1rem 0.2rem var(--shadow-black);
+            border: none;
+            outline: none;
+          }
+        }
+      }
+
+      .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: var(--fz_large);
+        background-color: orange;
+        aspect-ratio: 1/1;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        color: #333;
+
+        &:hover {
+          color: #f00;
+        }
+      }
+    }
+  }
+}

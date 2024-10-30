@@ -1,0 +1,161 @@
+.blog_detail_page {
+    width: 100%;
+    background-color: var(--cl_bg);
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes expandHeight {
+        to {
+            opacity: 1;
+            height: 100%;
+        }
+    }
+
+    @keyframes scale3D {
+        to {
+            transform: scale(1);
+        }
+    }
+    .sec1::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ 50% */
+        z-index: -1; /* Để lớp phủ nằm dưới nội dung nhưng trên hình nền */
+    }
+    .sec1 {
+        position: relative;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 16/6;
+        z-index: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        .content {
+            color: white;
+            padding: 10%;
+            .t_1 {
+                font-size: var(--fz_large);
+                font-weight: 800;
+                opacity: 0;
+                transform: translateX(-100px);
+                animation: slideIn 2s forwards;
+            }
+            .name_type {
+                font-size: 5rem;
+                font-weight: 1000;
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                animation: expandHeight 3s forwards;
+                transition:
+                    height 3s ease,
+                    opacity 1s ease;
+            }
+            .b_discription {
+                width: 100%;
+                max-width: 550px;
+
+                .discription {
+                    padding: 1rem 0;
+                    transform: scale(0.6);
+                    animation: scale3D 1s forwards;
+                }
+                .btn_scroll {
+                    width: 4rem;
+                    background-color: rgba(255, 255, 255, 0.181);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    aspect-ratio: 1.1/1;
+                    cursor: pointer;
+                    clip-path: polygon(50% 0%, 87.5% 25%, 87.5% 75%, 50% 100%, 12.5% 75%, 12.5% 25%);
+                    i {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .sec2 {
+        width: 100%;
+        max-width: var(--mw);
+        margin: auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 2rem;
+        .left {
+            width: 100%;
+            // background-color: red;
+            .title {
+                font-size: var(--fz_max);
+
+                color: white;
+                font-weight: 800;
+            }
+            .date {
+                font-size: var(--fz_small);
+                color: orange;
+                font-weight: 700;
+                padding-bottom: 1rem;
+            }
+            .content {
+                padding: 1rem;
+                color: white;
+                max-height: 35rem;
+                overflow-y: scroll;
+                padding: 1rem;
+                scrollbar-width: thin;
+            }
+        }
+        .right {
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            color: white;
+
+            .container_r {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    object-fit: fill;
+                }
+                .b_name {
+                    justify-content: center;
+                    display: flex;
+                    gap: 0.5rem;
+                    padding-bottom: 0.5rem;
+                    p {
+                        font-size: var(--fz_medium);
+                        font-weight: 800;
+                    }
+                }
+                .phone_contact,
+                .specialization,
+                .experience {
+                    font-size: var(--fz_small);
+                    color: var(--cl_second);
+                    padding: 0.1rem 0;
+                    span {
+                        font-size: var(--fz_small);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

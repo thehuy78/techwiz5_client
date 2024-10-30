@@ -1,0 +1,89 @@
+.header {
+    width: 100%;
+    padding: 1rem;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 0.5rem;
+    background-color: transparent;
+    z-index: 3;
+    transition: 0.3s ease-in-out;
+    justify-content: space-between;
+    .header_left {
+        width: 100%;
+        display: flex;
+
+        align-items: center;
+        gap: 1rem;
+        .b_img {
+            width: 13%;
+            img {
+                width: 100%;
+            }
+        }
+        .list_router {
+            display: flex;
+            gap: 1rem;
+            .link_tag {
+                p {
+                    font-weight: 700;
+                    color: white;
+                }
+            }
+        }
+    }
+    .header_right {
+        width: 100%;
+        display: flex;
+
+        align-items: center;
+        justify-content: right;
+        gap: 2rem;
+        .b_search_navbar {
+            background-color: white;
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+
+            input {
+                font-size: 1rem;
+                line-height: 1.4rem;
+                padding: 0.5rem 3rem;
+                min-width: 10rem;
+                border: none;
+                outline: none;
+            }
+            i {
+                position: absolute;
+                font-size: var(--fz_small);
+                font-weight: 700;
+                top: 50%;
+                left: 0;
+
+                color: var(--cl_bg);
+                transform: translate(80%, -50%);
+            }
+        }
+        i {
+            font-size: var(--fz_medium);
+            color: white;
+        }
+        .b_login_btn_nav {
+            .login {
+                padding: 0.4rem 2rem;
+                color: var(--cl_bg);
+                background-color: transparent;
+                font-weight: 800;
+                outline: none;
+                border: none;
+                border-radius: 0.4rem;
+                font-size: var(--fz_small);
+                color: white;
+            }
+        }
+    }
+}
+.header.scrolled {
+    background-color: var(--cl_bg);
+    box-shadow: 0 0.2rem 0.4rem -0.1rem var(--shadow-black);
+}

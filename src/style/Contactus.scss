@@ -1,0 +1,336 @@
+.contact_us {
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--cl_bg);
+    .b_0::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ 50% */
+        z-index: -1; /* Để lớp phủ nằm dưới nội dung nhưng trên hình nền */
+    }
+    .b_0 {
+        position: relative;
+        width: 100%;
+        background-image: url("../assets/images/background/kitchen1.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 16/6;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        .content {
+            color: white;
+            padding: 10%;
+            .t_1 {
+                font-size: var(--fz_large);
+                font-weight: 800;
+                opacity: 0;
+                transform: translateX(-100px);
+                animation: slideIn 2s forwards;
+            }
+            .name_type {
+                font-size: 5rem;
+                font-weight: 1000;
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                animation: expandHeight 3s forwards;
+                transition:
+                    height 3s ease,
+                    opacity 1s ease;
+            }
+            .b_discription {
+                width: 100%;
+                max-width: 550px;
+
+                .discription {
+                    padding: 1rem 0;
+                    transform: scale(0.6);
+                    animation: scale3D 1s forwards;
+                }
+                .btn_scroll {
+                    width: 4rem;
+                    background-color: rgba(255, 255, 255, 0.181);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    aspect-ratio: 1.1/1;
+                    cursor: pointer;
+                    clip-path: polygon(50% 0%, 87.5% 25%, 87.5% 75%, 50% 100%, 12.5% 75%, 12.5% 25%);
+                    i {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .b_1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        max-width: var(--mw);
+        margin: auto;
+        padding-top: 2rem;
+        width: 100%;
+        .child {
+            padding: 2rem 1rem;
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0.2rem var(--shadow-black);
+            display: grid;
+            grid-template-columns: 3fr 7fr;
+            gap: 0.5rem;
+            align-items: center;
+            transform-style: preserve-3d; /* Để hỗ trợ 3D transform */
+            backface-visibility: hidden; /* Ẩn mặt sau khi lật */
+            transform: rotateY(90deg); /* Mặt trong trắng ban đầu */
+            opacity: 0;
+            animation: flipIn 1s ease forwards; /* Kích hoạt animation khi xuất hiện */
+
+            /* Tạo ảnh responsive */
+            .b_img img {
+                width: 100%;
+            }
+
+            /* Tạo font chữ */
+            .title {
+                text-align: center;
+                font-weight: 800;
+            }
+
+            .description {
+                text-align: center;
+                font-size: var(--fz_smallmax);
+            }
+        }
+
+        /* Định nghĩa animation */
+        @keyframes flipIn {
+            0% {
+                transform: rotateY(90deg); /* Mặt trong trắng */
+                opacity: 0;
+            }
+            100% {
+                transform: rotateY(0deg); /* Lật mặt ngoài chứa content */
+                opacity: 1;
+            }
+        }
+    }
+    .b_2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        color: var(--white);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 0.5rem -0.2rem var(--shadow-black);
+        max-width: var(--mw);
+        margin: auto;
+        width: 100%;
+        .info_company {
+            width: 100%;
+
+            .title_info {
+                font-size: var(--fz_large);
+                font-weight: 800;
+            }
+            .discription {
+                font-size: var(--fz_smallmax);
+                width: 85%;
+                padding-bottom: 1rem;
+            }
+            .box_img {
+                width: 100%;
+                height: 10rem;
+                border-radius: 0.5rem;
+
+                background-image: url("../assets//images/teammember/team.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .list_contact {
+                padding: 1.5rem 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 1rem;
+                .item {
+                    display: grid;
+
+                    grid-template-columns: 1fr 4.5fr;
+                    padding: 0.5rem;
+                    border-radius: 0.5rem;
+                    gap: 1rem;
+                    align-items: center;
+                    box-shadow: 0 0 0.2rem var(--shadow-black);
+                    i {
+                        width: 100%;
+                        aspect-ratio: 1/1;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: white;
+                        border-radius: 0.3rem;
+                        color: var(--cl_bg);
+                        box-shadow: 0 0 0.2rem var(--shadow-black);
+                    }
+                    .b_ac {
+                        p:first-child {
+                            font-weight: 800;
+                            font-size: var(--fz_small);
+                        }
+                        p:last-child {
+                            font-weight: 600;
+                            font-size: var(--fz_smallmax);
+                        }
+                    }
+                }
+            }
+            .social_media {
+                display: flex;
+                gap: 1.5rem;
+                .title {
+                    font-weight: 800;
+                    color: var(--shadow-white);
+                }
+                .list_social_contact {
+                    display: flex;
+                    gap: 1rem;
+                    .link_tag {
+                        i {
+                            font-size: var(--fz_medium);
+                            color: white;
+                        }
+                        .fa-facebook {
+                            color: rgb(0, 60, 255);
+                        }
+                        .fa-youtube {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .b_form_contact {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+
+            form {
+                box-shadow: 0 0 0.4rem 0.1rem var(--shadow-black);
+                border-radius: 0.5rem;
+                background-color: var(--shadow-black);
+                padding: 1rem 2rem;
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                .title {
+                    text-transform: uppercase;
+                    font-size: var(--fz_large);
+                    font-weight: 800;
+                    text-align: center;
+                    padding-bottom: 1rem;
+                }
+                .form_group {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-weight: 800;
+                        color: var(--shadow-white);
+                    }
+                    input {
+                        font-size: 1rem;
+                        line-height: 1.3rem;
+                        padding: 0.5rem 1rem;
+                        width: 100%;
+                        min-width: 20rem;
+                        outline: none;
+                        border-radius: 0.3rem;
+                        border: none;
+                        box-shadow: 0 0 0.2rem var(--shadow-black);
+                        &::placeholder {
+                            font-size: var(--fz_smallmax);
+                            font-weight: 600;
+                            color: var(--shadow-black);
+                        }
+                    }
+                    textarea {
+                        font-size: 1rem;
+                        line-height: 1.3rem;
+                        padding: 0.5rem 1rem;
+                        width: 100%;
+                        min-width: 20rem;
+                        outline: none;
+                        border-radius: 0.3rem;
+                        border: none;
+                        box-shadow: 0 0 0.2rem var(--shadow-black);
+                        &::placeholder {
+                            font-size: var(--fz_smallmax);
+                            font-weight: 600;
+                            color: var(--shadow-black);
+                        }
+                    }
+                }
+                .form_btn {
+                    padding-top: 0.5rem;
+                    display: flex;
+                    justify-content: center;
+                    gap: 2rem;
+                    input {
+                        padding: 0.3rem 2rem;
+                        border: none;
+                        outline: none;
+                        border-radius: 0.3rem;
+                        font-weight: 700;
+                        color: white;
+                        box-shadow: 0.1rem 0.1rem 0.2rem var(--shadow-black);
+                    }
+                    input:first-child {
+                        background-color: orange;
+                    }
+                    input:last-child {
+                        background-color: var(--cl_bg);
+                    }
+                    input {
+                        transition: 0.3s ease-in-out;
+                        cursor: pointer;
+                    }
+                    input:hover {
+                        transform: scale(1.05);
+                    }
+                    input:active {
+                        transform: scale(0.98);
+                    }
+                }
+            }
+        }
+    }
+    .b_3 {
+        width: 100%;
+        max-width: var(--mw);
+        margin: auto;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 1rem;
+
+        .item_map_if {
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 0.5rem -0.2rem var(--shadow-black);
+            height: 20rem;
+            border: none;
+            outline: none;
+        }
+    }
+}

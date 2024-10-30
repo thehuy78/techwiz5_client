@@ -1,0 +1,57 @@
+[
+    {
+        "title":"Support",
+        "child":[
+            {
+                "path":"/contact",
+                "name":"Contact Us"
+            },
+            {
+                "path":"",
+                "name":"Q&A"
+            },
+            {
+                "path":"",
+                "name":"Docs"
+            },
+            {
+                "path":"",
+                "name":"Feedback"
+            },
+             {
+                "path":"",
+                "name":"Buy & Sell"
+            },
+             {
+                "path":"",
+                "name":"Privacy Policy"
+            }
+        ]
+    },
+    {
+        "title":"Company",
+        "child":[
+            {
+                "path":"/aboutus",
+                "name":"About us"
+            },
+            {
+                "path":"/blog",
+                "name":"Blog"
+            },
+            {
+                "path":"",
+                "name":"Site Map"
+            },
+            {
+                "path":"",
+                "name":"Careers"
+            },
+             {
+                "path":"",
+                "name":"New Showroom"
+            }
+          
+        ]
+    }
+]

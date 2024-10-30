@@ -1,0 +1,336 @@
+.about_us {
+  background-color: var(--cl_bg);
+  width: 100%;
+  .sec1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Màu đen với độ mờ 50% */
+    z-index: -1; /* Để lớp phủ nằm dưới nội dung nhưng trên hình nền */
+  }
+  .sec1 {
+    position: relative; /* Để lớp phủ nằm chính xác trên background */
+    width: 100%;
+    aspect-ratio: 16/6;
+    background-image: url("../assets/images/outdoor//z5844677415181_af71fe1fa920709add6ccea623900155.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    z-index: 0;
+    padding-bottom: 3rem;
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes expandHeight {
+      to {
+        opacity: 1;
+        height: 100%;
+      }
+    }
+    .b_content {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      .title_1 {
+        color: white;
+        font-weight: 900;
+        font-size: 5rem;
+        width: 70%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-5rem);
+        animation: slideIn 2s forwards;
+      }
+      .title_2 {
+        color: white;
+        opacity: 0;
+
+        height: 0;
+
+        overflow: hidden;
+        animation: expandHeight 3s forwards;
+        transition:
+          height 3s ease,
+          opacity 1s ease;
+      }
+      .title_3 {
+        color: white;
+        padding-bottom: 2rem;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        animation: expandHeight 3s forwards;
+        transition:
+          height 3s ease,
+          opacity 1s ease;
+      }
+      .link_tag {
+        .b_btn {
+          display: flex;
+          background-color: white;
+          border-radius: 0.5rem;
+          gap: 0.5rem;
+          align-items: center;
+          padding: 0.3rem 3rem;
+          box-shadow: 0 0 0.2rem var (--shadow-white);
+          p,
+          i {
+            color: var(--cl_bg);
+          }
+        }
+      }
+    }
+  }
+  .sec2__ {
+    width: 100%;
+    padding: 2rem;
+    .b_sec {
+      width: 100%;
+      margin: auto;
+      max-width: var(--mw);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      padding: 0 2rem;
+      .left {
+        width: 100%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .company_name {
+          font-weight: 800;
+          color: var(--cl_second);
+          font-size: var(--fz_small);
+        }
+        .title {
+          font-size: var(--fz_large);
+          font-weight: 800;
+        }
+      }
+      .right {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        div {
+          width: 100%;
+          aspect-ratio: 1/1.5;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-image: url("../assets/images/outdoor/z5844677409303_eb4c09c1d806c09caa21debd19adddff.jpg");
+        }
+        div:last-child {
+          background-image: url("../assets/images/outdoor/z5844677409146_27f287ead1e91e3d1ac167d67b1bf4f6.jpg");
+        }
+      }
+    }
+  }
+  .sec3__ {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+    padding: 0 1rem;
+    .title_sec3_ {
+      text-align: center;
+      font-weight: 800;
+      font-size: var(--fz_max);
+      color: orange;
+    }
+    .description {
+      width: 80%;
+      margin: auto;
+      padding: 0.5rem 0 3rem;
+      text-align: center;
+      color: white;
+    }
+    .list_team {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 0 2rem 0;
+      .top_row {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+        div:first-child {
+          width: 100%;
+          background-color: white;
+          color: var(--cl_bg);
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border-radius: 1rem;
+          background-image: url("../assets/images/logo//logoconen.png");
+          display: flex;
+        }
+        div:last-child {
+          width: 100%;
+          background-color: white;
+          color: var(--cl_bg);
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border-radius: 1rem;
+          background-image: url("../assets/images/logo/nameteam.png");
+          display: flex;
+        }
+        .linh_m {
+          background-image: url("../assets/images/teammember/linh.jpg");
+        }
+        .giu_m {
+          background-image: url("../assets/images/teammember/giu.jpg");
+        }
+        .mai_m {
+          background-image: url("../assets/images/teammember/mai.jpg");
+        }
+      }
+      .bottom_row {
+        display: grid;
+        gap: 1rem;
+
+        grid-template-columns: 2fr 2fr 2fr 2fr;
+        div {
+          width: 100%;
+        }
+        .tan_m {
+          background-image: url("../assets/images/teammember/tan.jpg");
+        }
+        .viet_m {
+          background-image: url("../assets/images/teammember/viet.jpg");
+          background-position: left top;
+        }
+        .huy_m {
+          background-image: url("../assets/images/teammember/huy.jpg");
+          background-position: left top;
+        }
+        .nhan_m {
+          background-image: url("../assets/images/teammember/NHAN.jpg");
+        }
+      }
+      ._b_avt_team_member {
+        width: 100%;
+
+        position: relative;
+        z-index: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 1/1.2;
+        border-radius: 1rem;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0.5rem;
+        font-weight: 800;
+        cursor: pointer;
+        align-items: end;
+      }
+      ._b_avt_team_member::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: 0.4s ease-in-out;
+      }
+      // ._b_avt_team_member:hover::before {
+      //   position: absolute;
+      //   content: "";
+      //   width: 100%;
+      //   height: 100%;
+      //   z-index: -1;
+      //   inset: 0;
+      //   background-color: rgba(0, 0, 0, 0.7);
+      // }
+    }
+  }
+  .sec4::before {
+    background-color: rgba(0, 0, 0, 0.779);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+  }
+  .sec4 {
+    position: relative;
+    background-image: url("../assets/images/office/z5844677839733_28e387eccf32676d2b01ef1e0a7c8b87.jpg");
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    .top_b {
+      text-align: center;
+      width: 50%;
+      margin: auto;
+      color: white;
+      .title {
+        font-size: var(--fz_max);
+        font-weight: 800;
+      }
+    }
+    .bottom_b {
+      display: grid;
+      padding: 1rem;
+      grid-template-columns: 3fr 0.5fr 3fr 0.5fr 3fr;
+      gap: 1rem;
+
+      align-items: center;
+      i {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: var(--fz_large);
+      }
+      .item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        background-color: var(--cl_second);
+        padding: 1rem;
+        img {
+          width: 20%;
+        }
+        p {
+          text-align: center;
+        }
+        .title {
+          font-weight: 800;
+          font-size: var(--fz_medium);
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+}

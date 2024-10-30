@@ -1,0 +1,92 @@
+.productItem_CO {
+    width: 100%;
+    // aspect-ratio: 1/1.5;
+    background-color: var(--cl_bg);
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    box-shadow: 0 0 0.2rem 0.1rem var(--shadow-black);
+
+    .b_img_pro {
+        img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    .content_pro {
+        padding: 0.5rem 1rem;
+        .b_1_content {
+            .b_typeroom_content {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 0.5rem;
+                .type_room {
+                    font-weight: 800;
+                    color: var(--cl_second);
+                    font-size: var(--fz_smallmax);
+                    text-transform: uppercase;
+                }
+                i {
+                    font-size: 1.1rem;
+                    color: orange;
+                }
+            }
+
+            .name_pro {
+                color: white;
+                font-size: 1.1rem;
+                font-weight: 700;
+                line-height: 1.3rem;
+                height: 2.6rem;
+
+                line-clamp: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .b_price {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.5rem 0;
+                align-items: center;
+                p:first-child {
+                    color: orange;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                }
+                p:last-child {
+                    color: var(--cl_second);
+                    font-weight: 700;
+                    font-size: var(--fz_smallmax);
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .b_2_content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .link_tag {
+                width: 50%;
+            }
+            .add_to_cart_box {
+                background-color: white;
+                width: 100%;
+                padding: 0.5rem 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.4rem;
+                background-color: var(--shadow-white);
+                i {
+                    color: white;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

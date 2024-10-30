@@ -1,0 +1,121 @@
+.notification_CO {
+  width: 100%;
+  height: 100%;
+
+  .sec_1 {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--shadow-black);
+    .left {
+      display: flex;
+      gap: 0.1rem;
+      p {
+        padding: 0.7rem 2rem;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        position: relative;
+        i {
+          color: var(--cl_bg);
+          font-size: var(--fz_medium);
+          transition: 0.3s ease-in-out;
+        }
+        span {
+          position: absolute;
+          background-color: red;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 50%;
+        }
+      }
+      .item_choice {
+        background-color: orange;
+        i {
+          color: var(--white);
+          font-size: var(--fz_medium);
+        }
+      }
+    }
+    .right {
+      display: flex;
+      gap: 0.1rem;
+      p {
+        cursor: pointer;
+        padding: 0.7rem 2rem;
+
+        i {
+          color: var(--white);
+          font-size: var(--fz_medium);
+        }
+      }
+    }
+  }
+  .sec_2 {
+    .list_item {
+      display: flex;
+      flex-direction: column;
+      max-height: 32rem;
+      overflow-y: scroll;
+    }
+
+    .item {
+      padding: 1rem 0.5rem;
+      display: grid;
+
+      border-top: 0.05rem solid var(--gray);
+      grid-template-columns: 1.5fr 13fr 1fr;
+      gap: 1rem;
+      .icon_type {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .over_play_isread_notification {
+          position: absolute;
+          width: 0.7rem;
+          height: 0.7rem;
+          border-radius: 50%;
+          background-color: red;
+          top: -5%;
+          left: 50%;
+          transform: translateX(-230%);
+        }
+        i {
+          color: white;
+          background-color: var(--cl_bg);
+          height: fit-content;
+          padding: 0.4rem;
+          width: 3rem;
+          display: flex;
+          border-radius: 0.5rem;
+          justify-content: center;
+          align-items: center;
+          font-size: var(--fz_max);
+        }
+      }
+      .link_tag {
+        font-size: var(--fz_smallmax);
+        color: blue;
+        cursor: pointer;
+      }
+      .content {
+        line-height: 1.1rem;
+        max-height: 2.2rem;
+        line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        cursor: pointer;
+      }
+      .date_notification {
+        font-size: var(--fz_smallmax);
+        font-weight: 600;
+        color: var(--cl_bg);
+      }
+
+      .action_notification {
+        color: orange;
+      }
+    }
+  }
+}

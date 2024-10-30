@@ -1,0 +1,105 @@
+[
+    {
+        "title": "Payment Policy",
+        "child": [
+            {
+                "key": "Payment Methods",
+                "data": "Offer payment options such as bank transfer, e-wallets, credit cards, debit cards, or cash on delivery (COD)."
+            },
+            {
+                "key": "Payment Security",
+                "data": "SSL encryption ensures secure payments. This includes various layers of encryption for protecting user data."
+            },
+            {
+                "key": "Additional Info",
+                "data": "For more details on payment options and security, please contact our support team."
+            }
+        ]
+    },
+    {
+        "title": "Shipping Policy",
+        "child": [
+            {
+                "key": "Shipping Areas",
+                "data": "Domestic and international shipping available. Shipping charges may vary based on location and shipping method."
+            },
+            {
+                "key": "Delivery Time",
+                "data": "Estimated delivery time is 2-5 business days depending on the shipping method chosen at checkout."
+            },
+            {
+                "key": "Shipping Costs",
+                "data": "Free for orders over $50. Specific charges apply based on region and shipping method selected."
+            }
+        ]
+    },
+    {
+        "title": "Return & Exchange Policy",
+        "child": [
+            {
+                "key": "Return Period",
+                "data": "Customers can request returns or exchanges within 7 days of receipt. Ensure items are in original condition."
+            },
+            {
+                "key": "Return Conditions",
+                "data": "Items must be unused, in original packaging, and labels intact. Returns not meeting these conditions may not be accepted."
+            },
+            {
+                "key": "Return Shipping Costs",
+                "data": "Return shipping costs are covered by the customer unless otherwise specified in promotions or policies."
+            }
+        ]
+    },
+    {
+        "title": "Warranty Policy",
+        "child": [
+            {
+                "key": "Warranty Period",
+                "data": "Warranty period varies by product, typically 6-12 months. Extended warranty options may be available at additional cost."
+            },
+            {
+                "key": "Warranty Conditions",
+                "data": "Covers manufacturing defects but does not cover user-related damage or misuse of the product."
+            },
+            {
+                "key": "Warranty Process",
+                "data": "Follow the outlined warranty process for claims. Documentation of the purchase may be required."
+            }
+        ]
+    },
+    {
+        "title": "Refund Policy",
+        "child": [
+            {
+                "key": "Refund Conditions",
+                "data": "Refunds available for defective products, incorrect items, or items not as described. Proof of purchase is required."
+            },
+            {
+                "key": "Refund Timeframe",
+                "data": "Refunds are processed within 5-10 business days after the claim has been approved. Refunds are issued to the original payment method."
+            },
+            {
+                "key": "Refund Method",
+                "data": "Refunds will be issued via bank transfer, credit card, or e-wallet, based on the original payment method used."
+            }
+        ]
+    },
+    {
+        "title": "Privacy Policy",
+        "child": [
+            {
+                "key": "Information Collection",
+                "data": "Customer data is collected for order processing, customer service, and marketing purposes. All data collection complies with privacy regulations."
+            },
+            {
+                "key": "Data Sharing",
+                "data": "Customer data will not be shared with third parties without explicit consent. Exceptions apply as required by law."
+            },
+            {
+                "key": "Data Security",
+                "data": "Data is protected using high-security standards including encryption, secure servers, and regular security audits."
+            }
+        ]
+    }
+    
+]

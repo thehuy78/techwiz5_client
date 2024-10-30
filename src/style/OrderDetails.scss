@@ -1,0 +1,215 @@
+.order_detail_page {
+    background-color: var(--cl_bg);
+    width: 100%;
+    padding-top: 6rem;
+    .sec1 {
+        width: 100%;
+        max-width: var(--mw);
+        margin: auto;
+        color: white;
+        .brums_orderdetail {
+            display: flex;
+            gap: 0.5rem;
+            align-items: start;
+            .li_brums {
+                .id_order {
+                    font-weight: 800;
+                }
+                .date_created_order {
+                    font-size: 0.6rem;
+                }
+            }
+        }
+    }
+    .sec2 {
+        display: grid;
+        width: 100%;
+        max-width: var(--mw);
+        margin: auto;
+        padding: 2rem 0;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 1rem;
+        grid-auto-rows: fit-content;
+        .info_order {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            .update_status {
+                background-color: white;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                .t1 {
+                    font-size: var(--fz_medium);
+                    font-weight: 750;
+                }
+                .box_status {
+                    display: flex;
+
+                    gap: 1rem;
+                    align-items: start;
+                    div {
+                        display: flex;
+
+                        color: var(--cl_bg);
+                        flex-direction: column;
+                        p:first-child {
+                            font-weight: 800;
+                            color: orange;
+                        }
+                        p:last-child {
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
+            .info_delivery {
+                background-color: white;
+                padding: 1rem;
+                .t1 {
+                    font-size: var(--fz_medium);
+                    font-weight: 750;
+                }
+                .b_list_item {
+                    padding: 1rem 0;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 2rem;
+                    .item {
+                        p:first-child {
+                            font-weight: 800;
+                            color: var(--cl_second);
+                            font-size: var(--fz_small);
+                        }
+                        p:last-child {
+                            font-weight: 800;
+                        }
+                    }
+                }
+            }
+            .b_sup {
+                padding: 1rem;
+                background-color: var(--cl_second);
+                display: grid;
+                gap: 0.5rem;
+                align-items: center;
+                grid-template-columns: 1fr 3fr;
+                i {
+                    width: 100%;
+                    font-size: var(--fz_title);
+                    display: flex;
+                    justify-content: center;
+                }
+                p {
+                    font-size: var(--fz_smallmax);
+                }
+            }
+        }
+        .list_product_order {
+            width: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding: 2rem 1rem;
+            .list_pro_orderdetail {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                .item {
+                    display: flex;
+                    gap: 1rem;
+                    box-shadow: 0 0 0.2rem var(--shadow-black);
+                    padding: 0.5rem;
+
+                    img {
+                        width: 15%;
+                    }
+                    .pro_info_detail {
+                        width: 50%;
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .name_pro {
+                            font-weight: 800;
+                            font-size: 1.1rem;
+
+                            line-height: 1.2rem;
+                            max-height: 2.4rem;
+
+                            line-clamp: 2;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                        }
+                        .list_variant {
+                            display: flex;
+                            gap: 0.5rem;
+                            padding: 1rem 0 0.2rem;
+                            p {
+                                padding: 0.2rem 0.5rem;
+                                background-color: var(--cl_bg);
+                                color: white;
+                                font-size: 0.7rem;
+                            }
+                        }
+                    }
+                    .b_quatity {
+                        width: 15%;
+                        display: flex;
+                        gap: 0.5rem;
+                        height: fit-content;
+                        align-items: end;
+                        p:first-child {
+                            font-size: var(--fz_small);
+                        }
+                        p:last-child {
+                            font-weight: 700;
+                        }
+                    }
+                    .b_price_ {
+                        width: 20%;
+                        font-weight: 700;
+                    }
+                }
+            }
+            .caculator_order {
+                width: 100%;
+                display: flex;
+                justify-content: right;
+                align-items: end;
+                flex-direction: column;
+                gap: 0.5rem;
+                div {
+                    width: 60%;
+
+                    display: flex;
+                    justify-content: space-between;
+                    p:first-child {
+                        font-weight: 800;
+                        color: var(--cl_second);
+                    }
+                    p:last-child {
+                        font-weight: 650;
+                        color: var(--cl_bg);
+                    }
+                }
+                div:last-child {
+                    p:first-child {
+                        color: var(--cl_bg);
+                    }
+                    p:last-child {
+                        font-weight: 800;
+                        color: var(--cl_bg);
+                    }
+                }
+            }
+        }
+    }
+}

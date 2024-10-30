@@ -1,0 +1,74 @@
+{
+   "homepage": "https://thehuy78.github.io/techwiz5_client/",
+   "name": "techwiz5fe",
+   "version": "0.1.0",
+   "private": true,
+   "dependencies": {
+      "@emailjs/browser": "^4.4.1",
+      "@emotion/react": "^11.13.3",
+      "@emotion/styled": "^11.13.0",
+      "@mui/material": "^6.1.0",
+      "@mui/x-date-pickers": "^7.17.0",
+      "@testing-library/jest-dom": "^5.17.0",
+      "@testing-library/react": "^13.4.0",
+      "@testing-library/user-event": "^13.5.0",
+      "antd": "^5.20.6",
+      "axios": "^1.7.7",
+      "emailjs-com": "^3.2.0",
+      "html-react-parser": "^5.1.16",
+      "jwt-decode": "^4.0.0",
+      "rc-slider": "^11.1.6",
+      "react": "^18.3.1",
+      "react-calendar": "^5.0.0",
+      "react-cookie": "^7.2.0",
+      "react-date-picker": "^11.0.0",
+      "react-dom": "^18.3.1",
+      "react-dropdown": "^1.11.0",
+      "react-dropzone": "^14.2.3",
+      "react-modal": "^3.16.1",
+      "react-notifications": "^1.7.4",
+      "react-quill": "^2.0.0",
+      "react-range": "^1.10.0",
+      "react-router-dom": "^6.26.2",
+      "react-scripts": "5.0.1",
+      "react-select": "^5.8.0",
+      "react-slick": "^0.30.2",
+      "react-slideshow-image": "^4.3.2",
+      "react-spring": "^9.7.4",
+      "sass": "^1.78.0",
+      "slick-carousel": "^1.8.1",
+      "styled-components": "^6.1.13",
+      "swiper": "^11.1.12",
+      "techwiz5fe": "file:",
+      "web-vitals": "^2.1.4"
+   },
+   "scripts": {
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build",
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+   },
+   "eslintConfig": {
+      "extends": [
+         "react-app",
+         "react-app/jest"
+      ]
+   },
+   "browserslist": {
+      "production": [
+         ">0.2%",
+         "not dead",
+         "not op_mini all"
+      ],
+      "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+      ]
+   },
+   "devDependencies": {
+      "gh-pages": "^6.1.1"
+   }
+}
