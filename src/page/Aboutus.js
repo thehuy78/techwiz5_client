@@ -62,10 +62,11 @@ export default function Aboutus() {
             <div></div>
           </div>
           <div className='bottom_row'>
+            <div></div>
             <div className='_b_avt_team_member tan_m'>NGO DINH TAN</div>
             <div className='_b_avt_team_member huy_m'>NGUYEN THE HUY</div>
             <div className='_b_avt_team_member viet_m'>TRAN QUOC VIET</div>
-            <div className='_b_avt_team_member nhan_m'>NGUYEN THANH NHAN</div>
+            <div></div>
           </div>
 
 

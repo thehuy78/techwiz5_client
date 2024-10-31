@@ -372,6 +372,7 @@ export default function Product() {
                     type="search"
                     defaultValue={""}
                     id="search_product"
+                    placeholder="search name ..."
                     onChange={changeSearch}
                   />
                 </div>

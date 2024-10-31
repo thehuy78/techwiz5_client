@@ -337,5 +337,9 @@
     margin: auto;
     max-width: var(--mw);
     color: white;
+    height: 50rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding: 0.5rem;
   }
 }

@@ -213,7 +213,7 @@ export default function Blogs() {
                 <div className='sec2_container'>
                     <div className='filter'>
                         <div className='b_search'>
-                            <input type='search' onChange={onChangeSearch} id='search_blogs' />
+                            <input type='search' placeholder='search by author, title..' onChange={onChangeSearch} id='search_blogs' />
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
                         {/* <div className='btn_latest'>Latest</div>
