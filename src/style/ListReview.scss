@@ -40,8 +40,8 @@
     flex-direction: column;
     gap: 0.5rem;
     color: var(--cl_bg);
+    min-height: 29rem;
 
-    overflow-y: scroll;
     .item_review {
       width: 70%;
       background-color: var(--white);

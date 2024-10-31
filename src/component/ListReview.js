@@ -28,18 +28,24 @@ export default function ListReview({ review }) {
     return reviews.length > 0 ? calculateAverage(reviews).toFixed(1) : "0.0";
   }, [reviews]);
 
-  const totalPages = Math.ceil(reviews.length / reviewPerPage);
+  // Memoized filtered reviews based on `choice`
+  const filteredReviews = useMemo(() => {
+    return choice === 0 ? reviews : reviews.filter(r => r.score === choice);
+  }, [reviews, choice]);
+
+  // Calculate totalPages based on filtered reviews
+  const totalPages = Math.ceil(filteredReviews.length / reviewPerPage);
 
   const handleFilterStar = (number) => {
     setChoice(prevChoice => (prevChoice === number ? 0 : number));
+    setCurrentPage(1); // Reset to the first page after filtering
   };
 
   const currentReview = useMemo(() => {
-    const filteredReviews = choice === 0 ? reviews : reviews.filter(r => r.score === choice);
     const indexOfLastReview = currentPage * reviewPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewPerPage;
     return filteredReviews.slice(indexOfFirstReview, indexOfLastReview);
-  }, [currentPage, reviews, choice]);
+  }, [currentPage, filteredReviews]);
 
   const renderPagination = () => {
     const pagination = [];
@@ -122,15 +128,18 @@ export default function ListReview({ review }) {
       <div className='listReview'>
         {renderReviews()}
       </div>
-      <div className="pagination">
-        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
-          Prev
-        </button>
-        {renderPagination()}
-        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
-          Next
-        </button>
-      </div>
+      {totalPages > 0 && (
+        <div className="pagination">
+          <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+            Prev
+          </button>
+          {renderPagination()}
+          <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+            Next
+          </button>
+        </div>
+      )}
+
     </div>
   );
 }
